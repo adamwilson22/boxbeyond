@@ -38,23 +38,24 @@ export default function Navbar() {
                 alignItems: 'center'
             }}>
                 <Link href="/" style={{
-                    fontSize: '1.2rem',
+                    fontSize: 'clamp(1rem, 4vw, 1.2rem)',
                     fontWeight: 600,
                     fontFamily: 'var(--font-heading)',
                     letterSpacing: '0.1em',
-                    textTransform: 'uppercase'
+                    textTransform: 'uppercase',
+                    whiteSpace: 'nowrap'
                 }}>
                     BOX & BEYOND
                 </Link>
 
                 <div style={{
                     display: 'flex',
-                    gap: '1.5rem',
+                    gap: 'clamp(0.5rem, 2vw, 1.5rem)',
                     alignItems: 'center'
                 }}>
-                    <Link href="https://wa.me/yournumber" className="btn" style={{
+                    <Link href="https://wa.me/yournumber" className="btn hide-mobile" style={{
                         padding: '0.5rem 0',
-                        fontSize: '0.85rem',
+                        fontSize: '0.8rem',
                         textTransform: 'uppercase',
                         letterSpacing: '0.05em',
                         fontWeight: 500
@@ -62,12 +63,15 @@ export default function Navbar() {
                         WhatsApp Us
                     </Link>
                     <Link href="#contact" className="btn btn-primary" style={{
-                        padding: '0.7rem 1.5rem',
-                        fontSize: '0.85rem',
+                        padding: '0.6rem 1rem',
+                        fontSize: '0.75rem',
                         textTransform: 'uppercase',
-                        letterSpacing: '0.05em'
+                        letterSpacing: '0.05em',
+                        whiteSpace: 'nowrap',
+                        width: 'auto'
                     }}>
-                        Request Callback
+                        <span className="hide-mobile">Request Callback</span>
+                        <span className="show-mobile">Contact</span>
                     </Link>
                 </div>
             </div>

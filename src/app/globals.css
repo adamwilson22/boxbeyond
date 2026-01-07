@@ -92,10 +92,21 @@ button {
 
 /* Base Components Styles */
 .btn {
-  padding: 1rem 2rem;
+  padding: 1.2rem 2.8rem;
   font-weight: 500;
   transition: all 0.3s ease;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 100px;
+}
+
+@media (max-width: 768px) {
+  .btn {
+    padding: 1rem 2rem;
+    width: 100%;
+  }
 }
 
 .btn-primary {
@@ -117,4 +128,28 @@ button {
 .btn-outline:hover {
   background: var(--soft-grey);
   transform: translateY(-2px);
+}
+
+/* Utilities */
+.hide-mobile {
+  display: block;
+}
+
+.show-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .hide-mobile {
+    display: none !important;
+  }
+
+  .show-mobile {
+    display: block !important;
+  }
+
+  .hero-btns {
+    flex-direction: column;
+    padding: 0 1rem;
+  }
 }

@@ -53,10 +53,10 @@ export default function ProcessSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] as any }}
                     viewport={{ once: true }}
-                    style={{ textAlign: 'center', marginBottom: '10rem' }}
+                    style={{ textAlign: 'center', marginBottom: 'clamp(4rem, 15vw, 10rem)' }}
                 >
-                    <h2 style={{ fontSize: 'clamp(2.5rem, 7vw, 4.5rem)', marginBottom: '2.5rem', letterSpacing: '-0.05em', fontWeight: 400 }}>A better way to move.</h2>
-                    <p style={{ fontSize: '1.2rem', color: '#666', fontWeight: 300, letterSpacing: '0.05em' }}>Simplicity in three sophisticated acts.</p>
+                    <h2 style={{ fontSize: 'clamp(2.5rem, 8vw, 4.5rem)', marginBottom: '1.5rem', letterSpacing: '-0.05em', fontWeight: 400 }}>A better way to move.</h2>
+                    <p style={{ fontSize: 'clamp(1rem, 4vw, 1.2rem)', color: '#666', fontWeight: 300, letterSpacing: '0.05em' }}>Simplicity in three sophisticated acts.</p>
                 </motion.div>
 
                 <motion.div
@@ -98,8 +98,7 @@ export default function ProcessSection() {
                                     right: '-4rem',
                                     width: '80px',
                                     height: '1px',
-                                    background: 'linear-gradient(90deg, var(--border-color), transparent)',
-                                    display: 'var(--desktop-only)'
+                                    background: 'linear-gradient(90deg, var(--border-color), transparent)'
                                 }} className="connector" />
                             )}
                         </motion.div>

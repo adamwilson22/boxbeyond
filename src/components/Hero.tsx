@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
+import Link from 'next/link';
 
 export default function Hero() {
     const containerRef = useRef(null);
@@ -60,12 +61,15 @@ export default function Hero() {
             className="section"
             style={{
                 textAlign: 'center',
-                paddingTop: '18rem',
-                paddingBottom: '12rem',
+                paddingTop: 'clamp(8rem, 20vw, 18rem)',
+                paddingBottom: 'clamp(4rem, 15vw, 12rem)',
                 background: 'white',
                 position: 'relative',
                 overflow: 'hidden',
-                minHeight: '100vh'
+                minHeight: '100vh',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center'
             }}
         >
             {/* Decorative background element with parallax and mouse follow */}
@@ -74,8 +78,8 @@ export default function Hero() {
                     position: 'absolute',
                     top: '-10%',
                     right: '-5%',
-                    width: '600px',
-                    height: '600px',
+                    width: 'clamp(300px, 80vw, 600px)',
+                    height: 'clamp(300px, 80vw, 600px)',
                     background: 'var(--soft-grey)',
                     borderRadius: '50%',
                     filter: 'blur(100px)',
@@ -87,7 +91,7 @@ export default function Hero() {
                 }}
             />
 
-            <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+            <div className="container" style={{ position: 'relative', zIndex: 1, width: '100%' }}>
                 <motion.div
                     variants={containerVariants}
                     initial="hidden"
@@ -96,11 +100,11 @@ export default function Hero() {
                     <motion.h1
                         variants={itemVariants}
                         style={{
-                            fontSize: 'clamp(3.5rem, 8vw, 7rem)',
-                            lineHeight: 1,
-                            marginBottom: '2.5rem',
+                            fontSize: 'clamp(2.5rem, 10vw, 7rem)',
+                            lineHeight: 1.1,
+                            marginBottom: '1.5rem',
                             maxWidth: '1000px',
-                            margin: '0 auto 2.5rem',
+                            margin: '0 auto 1.5rem',
                             fontWeight: 400,
                             letterSpacing: '-0.05em',
                         }}
@@ -118,10 +122,10 @@ export default function Hero() {
 
                     <motion.div variants={itemVariants}>
                         <p style={{
-                            fontSize: 'clamp(1.2rem, 2.5vw, 1.5rem)',
+                            fontSize: 'clamp(1rem, 4vw, 1.5rem)',
                             color: '#666',
                             maxWidth: '650px',
-                            margin: '0 auto 5rem',
+                            margin: '0 auto 3rem',
                             fontWeight: 300,
                             letterSpacing: '0.01em',
                             lineHeight: 1.6
@@ -132,31 +136,28 @@ export default function Hero() {
 
                     <motion.div
                         variants={itemVariants}
+                        className="hero-btns"
                         style={{
                             display: 'flex',
-                            gap: '2rem',
+                            gap: '1.5rem',
                             justifyContent: 'center',
-                            alignItems: 'center'
+                            alignItems: 'center',
+                            maxWidth: '500px',
+                            margin: '0 auto'
                         }}
                     >
-                        <motion.a
-                            whileHover={{ scale: 1.02 }}
-                            whileTap={{ scale: 0.98 }}
+                        <Link
                             href="https://wa.me/yournumber"
                             className="btn btn-primary"
-                            style={{ padding: '1.4rem 3.5rem', borderRadius: '100px' }}
                         >
                             Start Your Journey
-                        </motion.a>
-                        <motion.a
-                            whileHover={{ scale: 1.02 }}
-                            whileTap={{ scale: 0.98 }}
+                        </Link>
+                        <Link
                             href="#contact"
                             className="btn btn-outline"
-                            style={{ padding: '1.4rem 3.5rem', borderRadius: '100px' }}
                         >
                             Request Callback
-                        </motion.a>
+                        </Link>
                     </motion.div>
                 </motion.div>
             </div>

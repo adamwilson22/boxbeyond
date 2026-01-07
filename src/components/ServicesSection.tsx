@@ -71,7 +71,7 @@ export default function ServicesSection() {
                     viewport={{ once: true, margin: "-100px" }}
                     style={{
                         display: 'grid',
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(clamp(280px, 100%, 320px), 1fr))',
                         gap: '1px',
                         background: '#eee',
                         border: '1px solid #eee'
@@ -82,7 +82,7 @@ export default function ServicesSection() {
                             key={i}
                             whileHover="hover"
                             style={{
-                                padding: '4rem',
+                                padding: 'clamp(2rem, 8vw, 4rem)',
                                 background: 'white',
                                 display: 'flex',
                                 flexDirection: 'column',
@@ -91,7 +91,7 @@ export default function ServicesSection() {
                                 cursor: 'pointer',
                                 position: 'relative',
                                 overflow: 'hidden',
-                                minHeight: '350px',
+                                minHeight: 'clamp(300px, 50vh, 350px)',
                                 color: 'var(--foreground)'
                             }}
                             variants={{
