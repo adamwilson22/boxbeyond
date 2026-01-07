@@ -80,7 +80,7 @@ export default function ServicesSection() {
                     {services.map((service, i) => (
                         <motion.div
                             key={i}
-                            variants={cardVariants}
+                            whileHover="hover"
                             style={{
                                 padding: '4rem',
                                 background: 'white',
@@ -91,17 +91,25 @@ export default function ServicesSection() {
                                 cursor: 'pointer',
                                 position: 'relative',
                                 overflow: 'hidden',
-                                minHeight: '350px'
+                                minHeight: '350px',
+                                color: 'var(--foreground)'
                             }}
-                            whileHover={{
-                                backgroundColor: 'var(--deep-charcoal)',
-                                color: 'white',
-                                y: -5
+                            variants={{
+                                ...cardVariants,
+                                hover: {
+                                    backgroundColor: 'var(--deep-charcoal)',
+                                    color: 'white',
+                                    y: -5,
+                                    transition: {
+                                        duration: 0.4,
+                                        ease: [0.22, 1, 0.36, 1] as any
+                                    }
+                                }
                             }}
                         >
-                            <div style={{ position: 'relative', zIndex: 1 }}>
-                                <h3 style={{ fontSize: '1.8rem', marginBottom: '1.5rem', fontWeight: 500, letterSpacing: '-0.02em' }}>{service.title}</h3>
-                                <p style={{ fontSize: '1.05rem', opacity: 0.7, fontWeight: 300, lineHeight: 1.7 }}>{service.description}</p>
+                            <div style={{ position: 'relative', zIndex: 1, color: 'inherit' }}>
+                                <h3 style={{ fontSize: '1.8rem', marginBottom: '1.5rem', fontWeight: 500, letterSpacing: '-0.02em', color: 'inherit' }}>{service.title}</h3>
+                                <p style={{ fontSize: '1.05rem', opacity: 0.7, fontWeight: 300, lineHeight: 1.7, color: 'inherit' }}>{service.description}</p>
                             </div>
 
                             <motion.div
@@ -117,7 +125,8 @@ export default function ServicesSection() {
                                     textTransform: 'uppercase',
                                     letterSpacing: '0.1em',
                                     position: 'relative',
-                                    zIndex: 1
+                                    zIndex: 1,
+                                    color: 'inherit'
                                 }}
                             >
                                 Learn More <ChevronRight size={14} strokeWidth={2.5} />
