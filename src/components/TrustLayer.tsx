@@ -1,0 +1,78 @@
+'use client';
+
+import { motion } from 'framer-motion';
+import { Shield, Users, Map, HeartHandshake } from 'lucide-react';
+
+export default function TrustLayer() {
+    const points = [
+        {
+            icon: <Shield size={24} strokeWidth={1.5} />,
+            title: "Fully Insured",
+            text: "Peace of mind for every item."
+        },
+        {
+            icon: <Users size={24} strokeWidth={1.5} />,
+            title: "Trained Teams",
+            text: "Professionalism in every step."
+        },
+        {
+            icon: <Map size={24} strokeWidth={1.5} />,
+            title: "End-to-End Coordination",
+            text: "We manage every detail."
+        },
+        {
+            icon: <HeartHandshake size={24} strokeWidth={1.5} />,
+            title: "White-Glove Handling",
+            text: "Care beyond expectations."
+        }
+    ];
+
+    return (
+        <section style={{
+            padding: '6rem 0',
+            background: 'white',
+            borderTop: '1px solid var(--border-color)',
+        }}>
+            <div className="container">
+                <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+                    gap: '4rem',
+                }}>
+                    {points.map((point, i) => (
+                        <motion.div
+                            key={i}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: i * 0.1 }}
+                            viewport={{ once: true }}
+                            style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'flex-start',
+                                gap: '1.2rem'
+                            }}
+                        >
+                            <div style={{
+                                width: '48px',
+                                height: '48px',
+                                background: 'var(--soft-grey)',
+                                borderRadius: '12px',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                color: 'var(--deep-charcoal)'
+                            }}>
+                                {point.icon}
+                            </div>
+                            <div>
+                                <h3 style={{ fontSize: '1.1rem', marginBottom: '0.4rem', fontWeight: 500 }}>{point.title}</h3>
+                                <p style={{ fontSize: '0.95rem', color: '#777', fontWeight: 300 }}>{point.text}</p>
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+}
