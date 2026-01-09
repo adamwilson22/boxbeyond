@@ -61,22 +61,26 @@ export default function LeadCapture() {
               <label htmlFor="move-type">Move Type</label>
               <select id="move-type">
                 <option value="">Select move type</option>
-                <option value="residential">Home Moving</option>
+                <option value="residential">Home Moving (Villa/Apartment)</option>
+                <option value="single">Single Item Movement</option>
                 <option value="commercial">Office & Commercial</option>
                 <option value="international">International Relocation</option>
-                <option value="other">Other</option>
+                <option value="addons">Concierge Add-ons Only</option>
               </select>
             </div>
 
             <div className="input-group">
-              <label htmlFor="message">Optional Message</label>
-              <textarea id="message" rows={4} placeholder="Tell us more about your move..."></textarea>
+              <label htmlFor="message">Moving From / Details</label>
+              <textarea id="message" rows={4} placeholder="e.g. Marina to Downtown, or Piano movement needed..."></textarea>
             </div>
 
             <div style={{ textAlign: 'center', marginTop: '1rem' }}>
               <button type="submit" className="btn btn-primary" style={{ padding: '1.4rem 4rem', fontSize: '1rem', width: 'auto' }}>
-                Submit Request
+                Request Instant Quote
               </button>
+              <p style={{ marginTop: '1.5rem', fontSize: '0.9rem', color: '#888' }}>
+                Our concierge will contact you within 30 minutes.
+              </p>
             </div>
           </motion.form>
         </div>

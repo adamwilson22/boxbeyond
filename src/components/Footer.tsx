@@ -1,3 +1,5 @@
+import { Star } from 'lucide-react';
+
 export default function Footer() {
     return (
         <footer style={{
@@ -53,17 +55,40 @@ export default function Footer() {
                     paddingTop: '3rem',
                     borderTop: '1px solid var(--border-color)',
                     display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    fontSize: '0.8rem',
-                    color: '#888'
+                    flexDirection: 'column',
+                    gap: '2rem',
+                    alignItems: 'center'
                 }}>
-                    <p>© {new Date().getFullYear()} Box & Beyond Relocations. All rights reserved.</p>
-                    <div style={{ display: 'flex', gap: '1.5rem' }}>
-                        <a href="#">Privacy Policy</a>
-                        <a href="#">Terms of Service</a>
+                    <div style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
+                        <div style={{ display: 'flex', gap: '0.5rem', color: '#FFD700' }}>
+                            {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="#FFD700" />)}
+                        </div>
+                        <span style={{ fontSize: '0.9rem', color: '#666', fontWeight: 500 }}>4.9/5 on Google Reviews</span>
+                    </div>
+
+                    <div style={{
+                        width: '100%',
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        fontSize: '0.8rem',
+                        color: '#888',
+                        flexWrap: 'wrap',
+                        gap: '1rem'
+                    }}>
+                        <p>© {new Date().getFullYear()} Box & Beyond Relocations. All rights reserved.</p>
+                        <div style={{ display: 'flex', gap: '1.5rem' }}>
+                            <a href="#">Instagram</a>
+                            <a href="#">LinkedIn</a>
+                            <a href="#">Facebook</a>
+                        </div>
+                        <div style={{ display: 'flex', gap: '1.5rem' }}>
+                            <a href="#">Privacy Policy</a>
+                            <a href="#">Terms of Service</a>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </footer>
     );

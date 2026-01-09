@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
+import { Star } from 'lucide-react';
 
 export default function Hero() {
     const containerRef = useRef(null);
@@ -137,27 +138,43 @@ export default function Hero() {
                     <motion.div
                         variants={itemVariants}
                         className="hero-btns"
-                        style={{
-                            display: 'flex',
-                            gap: '1.5rem',
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            maxWidth: '500px',
-                            margin: '0 auto'
-                        }}
+                        style={{ width: '100%', maxWidth: '600px', margin: '0 auto' }}
                     >
-                        <Link
-                            href="https://wa.me/yournumber"
-                            className="btn btn-primary"
-                        >
-                            Start Your Journey
-                        </Link>
-                        <Link
-                            href="#contact"
-                            className="btn btn-outline"
-                        >
-                            Request Callback
-                        </Link>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                            <div style={{
+                                display: 'flex',
+                                gap: '1.5rem',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                width: '100%'
+                            }}>
+                                <Link
+                                    href="https://wa.me/yournumber"
+                                    className="btn btn-primary"
+                                    style={{ flex: 1 }}
+                                >
+                                    Book Your Move
+                                </Link>
+                                <Link
+                                    href="#contact"
+                                    className="btn btn-outline"
+                                    style={{ flex: 1 }}
+                                >
+                                    Instant Quote
+                                </Link>
+                            </div>
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 2 }}
+                                style={{ fontSize: '0.85rem', color: '#999', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}
+                            >
+                                <div style={{ display: 'flex', color: '#FFD700' }}>
+                                    {[...Array(5)].map((_, i) => <Star key={i} size={12} fill="#FFD700" />)}
+                                </div>
+                                <span>Trusted by 500+ residents in Dubai</span>
+                            </motion.div>
+                        </div>
                     </motion.div>
                 </motion.div>
             </div>
@@ -178,6 +195,6 @@ export default function Hero() {
                     zIndex: 1
                 }}
             />
-        </section>
+        </section >
     );
 }

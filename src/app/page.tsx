@@ -9,6 +9,9 @@ import QuoteSection from '@/components/QuoteSection';
 import ProcessSection from '@/components/ProcessSection';
 import LeadCapture from '@/components/LeadCapture';
 import Footer from '@/components/Footer';
+import Testimonials from '@/components/Testimonials';
+import Pricing from '@/components/Pricing';
+import Commitment from '@/components/Commitment';
 
 export default function Home() {
   return (
@@ -47,7 +50,12 @@ export default function Home() {
         </div>
       </section>
 
+      <Pricing />
+      <Testimonials />
+      <Commitment />
+
       <LeadCapture />
+
       <Footer />
 
       {/* Floating WhatsApp Button */}

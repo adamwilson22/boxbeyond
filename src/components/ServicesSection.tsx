@@ -5,11 +5,12 @@ import { ChevronRight } from 'lucide-react';
 
 export default function ServicesSection() {
     const services = [
-        { title: "Home Moving", description: "Seamless transitions for families and individuals." },
-        { title: "Office & Commercial", description: "Minimal downtime, maximum professionalism." },
-        { title: "International Relocation", description: "Global moves handled with local care." },
-        { title: "Packing & Storage", description: "Secure, methodical and premium protection." },
-        { title: "Custom Move Planning", description: "Bespoke strategy for complex requirements." }
+        { title: "Home Moving", description: "Seamless transitions for villas and apartments with white-glove care." },
+        { title: "Single Item Movement", description: "Specialized transport for pianos, art, or individual high-value furniture." },
+        { title: "Office & Commercial", description: "Precision logistics with minimal downtime for your business." },
+        { title: "International Relocation", description: "Global moves handled with local care and full customs management." },
+        { title: "Concierge Add-ons", description: "TV mounting, furniture assembly, and deep cleaning services." },
+        { title: "Secure Storage", description: "Climate-controlled units for short-term or seasonal needs." }
     ];
 
     const containerVariants = {
