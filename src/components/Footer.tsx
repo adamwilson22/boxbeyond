@@ -13,7 +13,16 @@ export default function Footer() {
                     marginBottom: '4rem'
                 }}>
                     <div>
-                        <h3 style={{ fontSize: '1.2rem', marginBottom: '1.5rem', fontWeight: 600 }}>BOX & BEYOND</h3>
+                        <img
+                            src="/PNG.png"
+                            alt="Box & Beyond"
+                            style={{
+                                height: '90px',
+                                width: 'auto',
+                                marginBottom: '1.5rem',
+                                objectFit: 'contain'
+                            }}
+                        />
                         <p style={{ fontSize: '0.9rem', maxWidth: '250px' }}>
                             Premium moving services across Dubai and the UAE. Managed with care, delivered with excellence.
                         </p>

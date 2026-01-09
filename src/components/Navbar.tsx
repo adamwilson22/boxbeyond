@@ -38,14 +38,20 @@ export default function Navbar() {
                 alignItems: 'center'
             }}>
                 <Link href="/" style={{
-                    fontSize: 'clamp(1rem, 4vw, 1.2rem)',
-                    fontWeight: 600,
-                    fontFamily: 'var(--font-heading)',
-                    letterSpacing: '0.1em',
-                    textTransform: 'uppercase',
-                    whiteSpace: 'nowrap'
+                    display: 'flex',
+                    alignItems: 'center',
                 }}>
-                    BOX & BEYOND
+                    <img
+                        src="/PNG.png"
+                        alt="Box & Beyond"
+                        style={{
+                            height: 'clamp(80px, 15vw, 120px)',
+                            width: 'auto',
+                            objectFit: 'contain',
+                            marginTop: '-10px', // Minor adjustment to center visual weight
+                            marginBottom: '-10px'
+                        }}
+                    />
                 </Link>
 
                 <div style={{

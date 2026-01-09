@@ -63,7 +63,7 @@ export default function Home() {
           position: 'fixed',
           bottom: '2.5rem',
           right: '2.5rem',
-          background: 'var(--deep-charcoal)',
+          background: 'var(--muted-gold)',
           color: 'white',
           width: '64px',
           height: '64px',

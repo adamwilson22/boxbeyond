@@ -56,12 +56,12 @@ export default function TrustLayer() {
                             <div style={{
                                 width: '48px',
                                 height: '48px',
-                                background: 'var(--soft-grey)',
+                                background: 'rgba(182, 141, 93, 0.1)',
                                 borderRadius: '12px',
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
-                                color: 'var(--deep-charcoal)'
+                                color: 'var(--muted-gold)'
                             }}>
                                 {point.icon}
                             </div>

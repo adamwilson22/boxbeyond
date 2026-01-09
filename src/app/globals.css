@@ -5,7 +5,7 @@
   --foreground: #1a1a1a;
   --soft-grey: #f8f9fa;
   --deep-charcoal: #1a1a1a;
-  --muted-gold: #c5a059;
+  --muted-gold: #b68d5d;
   --border-color: #f0f0f0;
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.02);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.05);
@@ -110,7 +110,7 @@ button {
 }
 
 .btn-primary {
-  background: var(--deep-charcoal);
+  background: var(--muted-gold);
   color: white;
 }
 

@@ -79,7 +79,7 @@ export default function ProcessSection() {
                                 style={{
                                     fontSize: '0.8rem',
                                     fontWeight: 600,
-                                    color: 'var(--deep-charcoal)',
+                                    color: 'var(--muted-gold)',
                                     marginBottom: '2.5rem',
                                     letterSpacing: '0.3em',
                                     textTransform: 'uppercase'

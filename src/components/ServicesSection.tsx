@@ -97,7 +97,7 @@ export default function ServicesSection() {
                             variants={{
                                 ...cardVariants,
                                 hover: {
-                                    backgroundColor: 'var(--deep-charcoal)',
+                                    backgroundColor: 'var(--muted-gold)',
                                     color: 'white',
                                     y: -5,
                                     transition: {
