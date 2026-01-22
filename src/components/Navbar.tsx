@@ -4,8 +4,13 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-export default function Navbar() {
+interface NavbarProps {
+    theme?: 'light' | 'dark';
+}
+
+export default function Navbar({ theme = 'light' }: NavbarProps) {
     const [isScrolled, setIsScrolled] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // Assuming this state is needed for the new JSX
 
     useEffect(() => {
         const handleScroll = () => {
@@ -14,6 +19,9 @@ export default function Navbar() {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    // If theme is dark, use dark text immediately. If light, waiting for scroll.
+    const useDarkText = isScrolled || isMobileMenuOpen || theme === 'dark';
 
     return (
         <motion.nav
@@ -32,55 +40,114 @@ export default function Navbar() {
                 transition: 'var(--transition-smooth)'
             }}
         >
-            <div className="container" style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center'
-            }}>
-                <Link href="/" style={{
-                    display: 'flex',
-                    alignItems: 'center',
+            <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                {/* Main Logo */}
+                <Link href="/" className="logo" style={{
+                    fontSize: '2.2rem',
+                    fontWeight: 700,
+                    letterSpacing: '-0.02em',
+                    position: 'relative',
+                    zIndex: 101, // Above mobile menu
+                    color: useDarkText ? 'var(--deep-charcoal)' : 'white',
+                    transition: 'color 0.3s ease'
                 }}>
-                    <img
-                        src="/PNG.png"
-                        alt="Box & Beyond"
-                        style={{
-                            height: 'clamp(80px, 15vw, 120px)',
-                            width: 'auto',
-                            objectFit: 'contain',
-                            marginTop: '-10px', // Minor adjustment to center visual weight
-                            marginBottom: '-10px'
-                        }}
-                    />
+                    Box & Beyond
                 </Link>
 
-                <div style={{
+                {/* Desktop Nav */}
+                <div className="desktop-nav" style={{
                     display: 'flex',
-                    gap: 'clamp(0.5rem, 2vw, 1.5rem)',
+                    gap: '2.5rem',
                     alignItems: 'center'
                 }}>
-                    <Link href="https://wa.me/yournumber" className="btn hide-mobile" style={{
-                        padding: '0.5rem 0',
-                        fontSize: '0.8rem',
-                        textTransform: 'uppercase',
-                        letterSpacing: '0.05em',
-                        fontWeight: 500
-                    }}>
-                        WhatsApp Us
+                    {['Home', 'Services', 'Contact'].map((item) => {
+                        if (item === 'Services') {
+                            return (
+                                <div key={item} style={{ position: 'relative' }} className="nav-item">
+                                    <Link
+                                        href="/#services"
+                                        style={{
+                                            color: useDarkText ? 'var(--deep-charcoal)' : 'white',
+                                            fontSize: '0.95rem',
+                                            cursor: 'pointer',
+                                            fontWeight: 500
+                                        }}
+                                    >
+                                        Services
+                                    </Link>
+                                </div>
+                            );
+                        }
+                        return (
+                            <Link
+                                key={item}
+                                href={item === 'Home' ? '/' : `#${item.toLowerCase()}`}
+                                style={{
+                                    color: useDarkText ? 'var(--deep-charcoal)' : 'white',
+                                    fontSize: '0.95rem',
+                                    fontWeight: 500,
+                                    transition: 'color 0.3s ease'
+                                }}
+                            >
+                                {item}
+                            </Link>
+                        )
+                    })}
+
+                    <Link
+                        href="/services/home-moving"
+                        style={{
+                            color: useDarkText ? 'var(--deep-charcoal)' : 'white',
+                            fontSize: '0.95rem',
+                            fontWeight: 500
+                        }}
+                    >
+                        Home Moving
                     </Link>
-                    <Link href="#contact" className="btn btn-primary" style={{
-                        padding: '0.6rem 1rem',
-                        fontSize: '0.75rem',
-                        textTransform: 'uppercase',
-                        letterSpacing: '0.05em',
-                        whiteSpace: 'nowrap',
-                        width: 'auto'
-                    }}>
-                        <span className="hide-mobile">Request Callback</span>
-                        <span className="show-mobile">Contact</span>
+                    <Link
+                        href="/secure-storage-dubai"
+                        style={{
+                            color: useDarkText ? 'var(--deep-charcoal)' : 'white',
+                            fontSize: '0.95rem',
+                            fontWeight: 500
+                        }}
+                    >
+                        Storage
                     </Link>
+                    <Link
+                        href="/concierge-add-ons-dubai"
+                        style={{
+                            color: useDarkText ? 'var(--deep-charcoal)' : 'white',
+                            fontSize: '0.95rem',
+                            fontWeight: 500
+                        }}
+                    >
+                        Concierge
+                    </Link>
+                    <Link
+                        href="/single-item-move-dubai"
+                        style={{
+                            color: useDarkText ? 'var(--deep-charcoal)' : 'white',
+                            fontSize: '0.95rem',
+                            fontWeight: 500
+                        }}
+                    >
+                        Single Item
+                    </Link>
+
+                    <a href="#contact" className="btn-primary" style={{
+                        background: 'var(--muted-gold)',
+                        color: 'white',
+                        padding: '0.7rem 1.5rem',
+                        borderRadius: '4px',
+                        fontSize: '0.9rem',
+                        fontWeight: 600,
+                        letterSpacing: '0.02em'
+                    }}>
+                        Get Quote
+                    </a>
                 </div>
             </div>
-        </motion.nav>
+        </motion.nav >
     );
 }

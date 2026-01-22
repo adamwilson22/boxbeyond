@@ -101,21 +101,22 @@ export default function Hero() {
                     <motion.h1
                         variants={itemVariants}
                         style={{
-                            fontSize: 'clamp(2.5rem, 10vw, 7rem)',
+                            fontSize: 'clamp(3.5rem, 10vw, 7rem)',
                             lineHeight: 1.1,
                             marginBottom: '1.5rem',
                             maxWidth: '1000px',
                             margin: '0 auto 1.5rem',
-                            fontWeight: 400,
-                            letterSpacing: '-0.05em',
+                            fontWeight: 600,
+                            letterSpacing: '-0.03em',
+                            color: 'var(--text-dark)'
                         }}
                     >
                         Moving, handled <br />
                         <motion.span
-                            initial={{ color: 'var(--foreground)' }}
+                            initial={{ color: 'var(--text-dark)' }}
                             animate={{ color: 'var(--muted-gold)' }}
                             transition={{ delay: 1.5, duration: 1 }}
-                            style={{ fontWeight: 500 }}
+                            style={{ fontWeight: 600 }}
                         >
                             properly.
                         </motion.span>
@@ -123,15 +124,17 @@ export default function Hero() {
 
                     <motion.div variants={itemVariants}>
                         <p style={{
-                            fontSize: 'clamp(1rem, 4vw, 1.5rem)',
-                            color: '#666',
+                            fontSize: 'clamp(1.1rem, 4vw, 1.4rem)',
+                            color: '#555',
                             maxWidth: '650px',
                             margin: '0 auto 3rem',
-                            fontWeight: 300,
+                            fontWeight: 400,
                             letterSpacing: '0.01em',
                             lineHeight: 1.6
                         }}>
-                            Premium residential and commercial moving services across Dubai and beyond.
+                            Assessment + Tailored Planning + Permit-to-Placement Coordination.
+                            <br />
+                            We make your move simple and stress-free.
                         </p>
                     </motion.div>
 
@@ -143,36 +146,47 @@ export default function Hero() {
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                             <div style={{
                                 display: 'flex',
-                                gap: '1.5rem',
+                                gap: '1rem',
                                 justifyContent: 'center',
                                 alignItems: 'center',
-                                width: '100%'
+                                width: '100%',
+                                flexWrap: 'wrap'
                             }}>
                                 <Link
                                     href="https://wa.me/yournumber"
                                     className="btn btn-primary"
-                                    style={{ flex: 1 }}
+                                    style={{
+                                        flex: '1 1 auto',
+                                        minWidth: '200px',
+                                        padding: '1rem 2rem',
+                                        fontSize: '1rem'
+                                    }}
                                 >
-                                    Book Your Move
+                                    Quote in 30 Mins
                                 </Link>
                                 <Link
                                     href="#contact"
                                     className="btn btn-outline"
-                                    style={{ flex: 1 }}
+                                    style={{
+                                        flex: '1 1 auto',
+                                        minWidth: '200px',
+                                        padding: '1rem 2rem',
+                                        fontSize: '1rem'
+                                    }}
                                 >
-                                    Instant Quote
+                                    Schedule Inspection
                                 </Link>
                             </div>
                             <motion.div
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 transition={{ delay: 2 }}
-                                style={{ fontSize: '0.85rem', color: '#999', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}
+                                style={{ fontSize: '0.9rem', color: '#666', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', marginTop: '0.5rem' }}
                             >
                                 <div style={{ display: 'flex', color: '#FFD700' }}>
-                                    {[...Array(5)].map((_, i) => <Star key={i} size={12} fill="#FFD700" />)}
+                                    {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="#FFD700" />)}
                                 </div>
-                                <span>Trusted by 500+ residents in Dubai</span>
+                                <span style={{ fontWeight: 500 }}>Trusted by 500+ residents in Dubai</span>
                             </motion.div>
                         </div>
                     </motion.div>

@@ -7,23 +7,23 @@ export default function TrustLayer() {
     const points = [
         {
             icon: <Shield size={24} strokeWidth={1.5} />,
-            title: "Damage-Free Guarantee",
-            text: "Fully insured moves for your peace of mind."
+            title: "Care-First Handling",
+            text: "Protection-first packaging & careful loading standards."
         },
         {
             icon: <Users size={24} strokeWidth={1.5} />,
             title: "Trained Teams",
-            text: "In-house professionals, no day laborers."
+            text: "Trained teams following a standard packing checklist."
         },
         {
             icon: <Map size={24} strokeWidth={1.5} />,
             title: "On-Time Arrival",
-            text: "Punctuality is our premium promise."
+            text: "We value your time with strict schedules."
         },
         {
             icon: <HeartHandshake size={24} strokeWidth={1.5} />,
-            title: "Zero Hidden Costs",
-            text: "Transparent pricing from day one."
+            title: "Transparent Scope",
+            text: "Clear inclusions/exclusions. No surprises."
         }
     ];
 

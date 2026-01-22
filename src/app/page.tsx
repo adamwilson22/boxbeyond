@@ -16,7 +16,7 @@ import Commitment from '@/components/Commitment';
 export default function Home() {
   return (
     <main>
-      <Navbar />
+      <Navbar theme="dark" />
       <Hero />
       <TrustLayer />
       <ServicesSection />

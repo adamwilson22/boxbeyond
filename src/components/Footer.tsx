@@ -31,13 +31,23 @@ export default function Footer() {
                     </div>
 
                     <div>
-                        <h4 style={{ fontSize: '0.9rem', marginBottom: '1.5rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Service Areas</h4>
+                        <h4 style={{ fontSize: '0.9rem', marginBottom: '1.5rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Services</h4>
                         <ul style={{ listStyle: 'none', fontSize: '0.9rem', display: 'grid', gap: '0.8rem' }}>
-                            <li>Dubai</li>
-                            <li>Abu Dhabi</li>
-                            <li>UAE Nationwide</li>
-                            <li>GCC Countries</li>
-                            <li>International</li>
+                            <li><a href="/services/home-moving" style={{ color: 'inherit', textDecoration: 'none' }}>Home Moving</a></li>
+                            <li><a href="/single-item-move-dubai" style={{ color: 'inherit', textDecoration: 'none' }}>Single Item Moving</a></li>
+                            <li><a href="/office-relocation-dubai" style={{ color: 'inherit', textDecoration: 'none' }}>Office & Commercial</a></li>
+                            <li><a href="/international-relocation-dubai" style={{ color: 'inherit', textDecoration: 'none' }}>International Moving</a></li>
+                            <li><a href="/secure-storage-dubai" style={{ color: 'inherit', textDecoration: 'none' }}>Secure Storage</a></li>
+                            <li><a href="/concierge-add-ons-dubai" style={{ color: 'inherit', textDecoration: 'none' }}>Concierge Services</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 style={{ fontSize: '0.9rem', marginBottom: '1.5rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Help & Guides</h4>
+                        <ul style={{ listStyle: 'none', fontSize: '0.9rem', display: 'grid', gap: '0.8rem' }}>
+                            <li><a href="/moving-permit-building-access-dubai" style={{ color: 'inherit', textDecoration: 'none' }}>Moving Permits & Access</a></li>
+                            <li><a href="/moving-permit-emaar-dubai" style={{ color: 'inherit', textDecoration: 'none' }}>Emaar Permit Guide</a></li>
+                            <li><a href="/insurance-claims" style={{ color: 'inherit', textDecoration: 'none' }}>Insurance & Claims</a></li>
                         </ul>
                     </div>
 
