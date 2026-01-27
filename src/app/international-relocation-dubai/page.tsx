@@ -1,159 +1,268 @@
 'use client';
 
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import { motion } from 'framer-motion';
-import { Globe, Plane, Ship, Shield, Check, FileText, Truck } from 'lucide-react';
+import { whatsAppUrl } from '@/lib/site-config';
+import { Globe, Ship, Shield, Check, FileText, Truck } from 'lucide-react';
+import { cardStyle, bulletCheckStyle, bulletDotStyle } from '@/lib/ui-styles';
+import ServicePageLayout from '@/components/ServicePageLayout';
 
 export default function InternationalPage() {
     return (
-        <main>
-            <Navbar theme="dark" />
+        <ServicePageLayout
+            title="International Relocation (From / To Dubai)"
+            subtitle="Door-to-door international moving with professional packing, shipping coordination, customs documentation support, and destination delivery — managed end-to-end through Box & Beyond and our vetted global freight partners."
+            primaryCta={{
+                text: "WhatsApp for an International Quote",
+                href: whatsAppUrl("Hi, I'd like an international relocation quote.")
+            }}
+            secondaryCta={{
+                text: "Request a Survey (Video / On-site)",
+                href: "/#contact"
+            }}
+            trustPoints={[
+                { icon: <Globe size={18} />, text: "Survey-led quoting (more accurate, fewer surprises)" },
+                { icon: <FileText size={18} />, text: "Detailed inventory / customs packing list prepared for shipment" },
+                { icon: <Shield size={18} />, text: "Sea & air freight options depending on timeline and budget" }
+            ]}
+        >
 
-            {/* Hero Section */}
-            <section style={{
-                paddingTop: '150px',
-                paddingBottom: '80px',
-                background: 'var(--soft-grey)',
-                textAlign: 'center'
-            }}>
-                <div className="container">
-                    <motion.h1
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        style={{
-                            fontSize: 'clamp(3rem, 6vw, 4.5rem)',
-                            fontWeight: 700,
-                            letterSpacing: '-0.02em',
-                            marginBottom: '1.5rem',
-                            color: 'var(--text-dark)'
-                        }}
-                    >
-                        International Relocation from Dubai
-                    </motion.h1>
-                    <motion.p
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 0.2 }}
-                        style={{
-                            fontSize: '1.2rem',
-                            maxWidth: '700px',
-                            margin: '0 auto 3rem',
-                            color: '#555',
-                            lineHeight: 1.6
-                        }}
-                    >
-                        Air, Sea, and Land moving solutions tailored to your destination.
-                        <br />
-                        Door-to-Door service with customs management.
-                    </motion.p>
-
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.3 }}
-                        style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}
-                    >
-                        <a href="https://wa.me/yournumber" className="btn btn-primary" style={{ padding: '1rem 2rem' }}>
-                            WhatsApp for a Quote
-                        </a>
-                        <a href="#contact" className="btn btn-outline" style={{ padding: '1rem 2rem', background: 'white' }}>
-                            Request Callback
-                        </a>
-                    </motion.div>
-
-                    <div style={{ marginTop: '3rem', display: 'flex', gap: '2rem', justifyContent: 'center', flexWrap: 'wrap', color: '#666', fontSize: '0.9rem' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                            <Globe size={18} color="var(--muted-gold)" /> <span>Network of 600+ partners</span>
-                        </div>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                            <FileText size={18} color="var(--muted-gold)" /> <span>Customs clearance support</span>
-                        </div>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                            <Shield size={18} color="var(--muted-gold)" /> <span>Transit insurance available</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Services Grid */}
+            {/* What we can handle (international scope) */}
             <section className="section">
                 <div className="container">
-                    <h2 style={{ fontSize: '2.5rem', marginBottom: '3rem', textAlign: 'center' }}>How we move you globally</h2>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
-                        <div style={{ padding: '2rem', background: 'white', borderRadius: '16px', border: '1px solid #eee' }}>
-                            <Plane size={32} color="var(--muted-gold)" style={{ marginBottom: '1rem' }} />
-                            <h3 style={{ fontSize: '1.3rem', marginBottom: '0.8rem', fontWeight: 600 }}>Air Freight</h3>
-                            <p style={{ color: '#666', lineHeight: 1.6 }}>Fastest option. Ideal for smaller shipments or urgent moves. Door-to-door or Door-to-Airport.</p>
+                    <h2 style={{ fontSize: '2rem', marginBottom: '3rem', textAlign: 'center', fontWeight: 600 }}>What we can handle (international scope)</h2>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', maxWidth: '900px', margin: '0 auto' }}>
+                        {/* 1) Survey & move planning */}
+                        <div style={{ ...cardStyle }}>
+                            <h3 style={{ fontSize: '1.4rem', marginBottom: '1.5rem', fontWeight: 600 }}>1) Survey & move planning (recommended)</h3>
+                            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                                <li style={{ ...bulletDotStyle }}><span style={{ color: 'var(--muted-gold)', fontSize: '0.6rem', flexShrink: 0 }}>●</span><span>Video survey or in-home survey to estimate shipment size and requirements</span></li>
+                                <li style={{ ...bulletDotStyle }}><span style={{ color: 'var(--muted-gold)', fontSize: '0.6rem', flexShrink: 0 }}>●</span><span>Route planning: air freight vs sea freight vs partial shipment</span></li>
+                                <li style={{ ...bulletDotStyle }}><span style={{ color: 'var(--muted-gold)', fontSize: '0.6rem', flexShrink: 0 }}>●</span><span>Guidance on destination requirements and preparation steps (documents, timing, restrictions)</span></li>
+                            </ul>
                         </div>
-                        <div style={{ padding: '2rem', background: 'white', borderRadius: '16px', border: '1px solid #eee' }}>
-                            <Ship size={32} color="var(--muted-gold)" style={{ marginBottom: '1rem' }} />
-                            <h3 style={{ fontSize: '1.3rem', marginBottom: '0.8rem', fontWeight: 600 }}>Sea Freight (LCL & FCL)</h3>
-                            <p style={{ color: '#666', lineHeight: 1.6 }}>Cost-effective. Full Container Load (FCL) for large homes, or Less than Container Load (LCL) for smaller volumes.</p>
+
+                        {/* 2) Professional export packing */}
+                        <div style={{ ...cardStyle }}>
+                            <h3 style={{ fontSize: '1.4rem', marginBottom: '1.5rem', fontWeight: 600 }}>2) Professional export packing</h3>
+                            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                                <li style={{ ...bulletDotStyle }}><span style={{ color: 'var(--muted-gold)', fontSize: '0.6rem', flexShrink: 0 }}>●</span><span>Export-grade packing using international removal cartons and reinforced protection</span></li>
+                                <li style={{ ...bulletDotStyle }}><span style={{ color: 'var(--muted-gold)', fontSize: '0.6rem', flexShrink: 0 }}>●</span><span>Disassembly, wrapping, itemising, and preparation for international transit</span></li>
+                                <li style={{ ...bulletDotStyle }}><span style={{ color: 'var(--muted-gold)', fontSize: '0.6rem', flexShrink: 0 }}>●</span><span>Optional: custom crating coordination (artwork, fragile items, specialty pieces)</span></li>
+                            </ul>
                         </div>
-                        <div style={{ padding: '2rem', background: 'white', borderRadius: '16px', border: '1px solid #eee' }}>
-                            <Truck size={32} color="var(--muted-gold)" style={{ marginBottom: '1rem' }} />
-                            <h3 style={{ fontSize: '1.3rem', marginBottom: '0.8rem', fontWeight: 600 }}>Land Freight (GCC)</h3>
-                            <p style={{ color: '#666', lineHeight: 1.6 }}>Road transport for moves to Saudi Arabia, Oman, Qatar, Bahrain, and Kuwait.</p>
+
+                        {/* 3) Inventory & shipping documentation support */}
+                        <div style={{ ...cardStyle }}>
+                            <h3 style={{ fontSize: '1.4rem', marginBottom: '1.5rem', fontWeight: 600 }}>3) Inventory & shipping documentation support</h3>
+                            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                                <li style={{ ...bulletDotStyle }}><span style={{ color: 'var(--muted-gold)', fontSize: '0.6rem', flexShrink: 0 }}>●</span><span>A detailed customs export packing list / inventory compiled for your shipment</span></li>
+                                <li style={{ ...bulletDotStyle }}><span style={{ color: 'var(--muted-gold)', fontSize: '0.6rem', flexShrink: 0 }}>●</span><span>Shipment booking with sea or air carrier (through freight partners)</span></li>
+                                <li style={{ ...bulletDotStyle }}><span style={{ color: 'var(--muted-gold)', fontSize: '0.6rem', flexShrink: 0 }}>●</span><span>Shipment tracking links where available</span></li>
+                            </ul>
+                        </div>
+
+                        {/* 4) Freight coordination (sea or air) */}
+                        <div style={{ ...cardStyle }}>
+                            <h3 style={{ fontSize: '1.4rem', marginBottom: '1.5rem', fontWeight: 600 }}>4) Freight coordination (sea or air)</h3>
+                            <p style={{ fontSize: '0.95rem', color: '#555', marginBottom: '1rem', lineHeight: 1.6 }}>
+                                Sea freight is typically chosen for full home moves and larger shipments, with longer transit times.<br />
+                                Air freight is usually for urgent, smaller shipments and essential items.
+                            </p>
+                            <p style={{ fontSize: '0.95rem', color: '#555', fontWeight: 600, marginBottom: '0.75rem' }}>Options can include:</p>
+                            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                                <li style={{ ...bulletDotStyle }}><span style={{ color: 'var(--muted-gold)', fontSize: '0.6rem', flexShrink: 0 }}>●</span><span>Full container (FCL) or shared container (LCL) (depending on volume and destination lane)</span></li>
+                                <li style={{ ...bulletDotStyle }}><span style={{ color: 'var(--muted-gold)', fontSize: '0.6rem', flexShrink: 0 }}>●</span><span>Air freight for boxes / personal effects</span></li>
+                            </ul>
+                        </div>
+
+                        {/* 5) Customs clearance & destination delivery */}
+                        <div style={{ ...cardStyle }}>
+                            <h3 style={{ fontSize: '1.4rem', marginBottom: '1.5rem', fontWeight: 600 }}>5) Customs clearance & destination delivery</h3>
+                            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                                <li style={{ ...bulletDotStyle }}><span style={{ color: 'var(--muted-gold)', fontSize: '0.6rem', flexShrink: 0 }}>●</span><span>Document checks and coordination to facilitate customs clearance at destination</span></li>
+                                <li style={{ ...bulletDotStyle }}><span style={{ color: 'var(--muted-gold)', fontSize: '0.6rem', flexShrink: 0 }}>●</span><span>Destination delivery, unpacking of cartons, furniture placement, and debris removal (when included in the selected service package)</span></li>
+                                <li style={{ ...bulletDotStyle }}><span style={{ color: 'var(--muted-gold)', fontSize: '0.6rem', flexShrink: 0 }}>●</span><span>Optional storage at origin or destination (subject to availability and scope)</span></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* Comparison Table / Inclusions */}
+            {/* What you should prepare + Important restrictions */}
             <section className="section" style={{ background: '#f9f9f9' }}>
                 <div className="container">
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem', alignItems: 'flex-start' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '4rem', alignItems: 'flex-start' }}>
                         <div>
-                            <h2 style={{ fontSize: '2.5rem', marginBottom: '1.5rem' }}>Export Packing Standards</h2>
-                            <p style={{ color: '#666', lineHeight: 1.7, marginBottom: '2rem' }}>
-                                International moves require different protection than local moves. We use export-grade wrapping to withstand long transit times.
-                            </p>
-                            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                                {[
-                                    '5-ply boxes for maximum strength',
-                                    'Bubble wrap + corrugated sheets for furniture',
-                                    'Wooden crating for fragile items (art, marble, glass)',
-                                    'Detailed inventory list for customs'
-                                ].map((item, i) => (
-                                    <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', fontWeight: 500 }}>
-                                        <Check size={18} color="green" /> {item}
-                                    </li>
-                                ))}
+                            <h2 style={{ fontSize: '1.75rem', marginBottom: '1.5rem', fontWeight: 600 }}>What you should prepare (customer checklist)</h2>
+                            <p style={{ color: '#666', lineHeight: 1.7, marginBottom: '1.5rem' }}>To reduce delays and unexpected charges, be ready with:</p>
+                            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                                <li style={{ ...bulletCheckStyle, fontWeight: 500 }}>
+                                    <Check size={18} color="#22c55e" style={{ flexShrink: 0 }} />
+                                    <span>Passport copy and visa/residency documents (varies by destination)</span>
+                                </li>
+                                <li style={{ ...bulletCheckStyle, fontWeight: 500 }}>
+                                    <Check size={18} color="#22c55e" style={{ flexShrink: 0 }} />
+                                    <span>A clear inventory of items to be shipped</span>
+                                </li>
+                                <li style={{ ...bulletCheckStyle, fontWeight: 500 }}>
+                                    <Check size={18} color="#22c55e" style={{ flexShrink: 0 }} />
+                                    <span>Any destination-specific approvals or permits (if needed)</span>
+                                </li>
                             </ul>
+                            <p style={{ marginTop: '1.5rem', fontSize: '0.9rem', color: '#555', lineHeight: 1.6 }}>
+                                If you&apos;re relocating into the UAE (Dubai): Dubai Customs states personal-use/used household items may be duty-exempt after inspection, while goods deemed new/commercial quantities may be charged duty (noting a 5% customs duty in such cases). Dubai Customs also lists commonly required documents such as passport copy, residency visa copy, and a written list of imported goods.
+                            </p>
                         </div>
-                        <div style={{ background: 'white', padding: '2rem', borderRadius: '16px', border: '1px solid #eee' }}>
-                            <h3 style={{ fontSize: '1.5rem', marginBottom: '1.5rem', fontWeight: 600 }}>The Process</h3>
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                                {[
-                                    { title: "1. Survey & Quote", text: "We measure volume (CBM) to give an accurate shipping price." },
-                                    { title: "2. Export Packing", text: "Team wraps and packs everything at your home." },
-                                    { title: "3. Customs & Freight", text: "We handle export docs and load onto the vessel/plane." },
-                                    { title: "4. Destination Delivery", text: "Our partner agent clears customs and delivers to your new door." }
-                                ].map((step, i) => (
-                                    <div key={i} style={{ display: 'flex', gap: '1rem' }}>
-                                        <div style={{ minWidth: '24px', height: '24px', background: 'var(--muted-gold)', borderRadius: '50%', color: 'white', fontSize: '0.8rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>{i + 1}</div>
-                                        <div>
-                                            <h4 style={{ fontSize: '1rem', fontWeight: 600, marginBottom: '0.3rem' }}>{step.title}</h4>
-                                            <p style={{ fontSize: '0.9rem', color: '#666' }}>{step.text}</p>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
+                        <div style={{ ...cardStyle }}>
+                            <h3 style={{ fontSize: '1.4rem', marginBottom: '1rem', fontWeight: 600 }}>Important restrictions (air/sea safety – avoid shipment holds)</h3>
+                            <p style={{ color: '#666', lineHeight: 1.6, marginBottom: '1rem' }}>Many international shipments are delayed due to restricted or dangerous goods.</p>
+                            <p style={{ color: '#555', fontWeight: 600, marginBottom: '0.75rem' }}>Common items that can cause problems:</p>
+                            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '1.5rem' }}>
+                                <li style={{ ...bulletDotStyle, fontSize: '0.95rem' }}>
+                                    <span style={{ color: 'var(--muted-gold)', fontSize: '0.6rem', flexShrink: 0 }}>●</span>
+                                    <span>Aerosols, paints, solvents, certain cleaning chemicals</span>
+                                </li>
+                                <li style={{ ...bulletDotStyle, fontSize: '0.95rem' }}>
+                                    <span style={{ color: 'var(--muted-gold)', fontSize: '0.6rem', flexShrink: 0 }}>●</span>
+                                    <span>Gas canisters / flammables</span>
+                                </li>
+                                <li style={{ ...bulletDotStyle, fontSize: '0.95rem' }}>
+                                    <span style={{ color: 'var(--muted-gold)', fontSize: '0.6rem', flexShrink: 0 }}>●</span>
+                                    <span>Loose lithium batteries / battery packs (air freight restrictions vary)</span>
+                                </li>
+                            </ul>
+                            <p style={{ fontSize: '0.9rem', color: '#666', lineHeight: 1.6, marginBottom: '1rem' }}>
+                                IATA guidance highlights that lithium and sodium-ion batteries are subject to strict rules, and spare batteries are generally not allowed in checked baggage for passengers; dangerous goods require correct preparation by qualified personnel unless excepted.
+                            </p>
+                            <p style={{ fontSize: '0.9rem', fontWeight: 600, color: '#555' }}>
+                                Best policy: If an item has a hazard symbol or contains chemicals/pressurised contents, tell us before packing so we can advise safely.
+                            </p>
                         </div>
                     </div>
+                </div>
+            </section>
+
+            {/* What's included / Extras */}
+            <section className="section">
+                <div className="container">
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+                        <div style={{ ...cardStyle }}>
+                            <h3 style={{ fontSize: '1.4rem', marginBottom: '1.5rem', fontWeight: 600 }}>What&apos;s included (standard international relocation package)</h3>
+                            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '1.5rem' }}>
+                                <li style={{ ...bulletCheckStyle }}>
+                                    <Check size={18} color="#22c55e" style={{ flexShrink: 0 }} />
+                                    <span>Survey (video/on-site) and shipment plan</span>
+                                </li>
+                                <li style={{ ...bulletCheckStyle }}>
+                                    <Check size={18} color="#22c55e" style={{ flexShrink: 0 }} />
+                                    <span>Export packing and furniture preparation</span>
+                                </li>
+                                <li style={{ ...bulletCheckStyle }}>
+                                    <Check size={18} color="#22c55e" style={{ flexShrink: 0 }} />
+                                    <span>Inventory / packing list for customs</span>
+                                </li>
+                                <li style={{ ...bulletCheckStyle }}>
+                                    <Check size={18} color="#22c55e" style={{ flexShrink: 0 }} />
+                                    <span>Pickup and transport to origin facility/port/airport (as per plan)</span>
+                                </li>
+                                <li style={{ ...bulletCheckStyle }}>
+                                    <Check size={18} color="#22c55e" style={{ flexShrink: 0 }} />
+                                    <span>Freight coordination via partner network</span>
+                                </li>
+                                <li style={{ ...bulletCheckStyle }}>
+                                    <Check size={18} color="#22c55e" style={{ flexShrink: 0 }} />
+                                    <span>Destination delivery (based on selected package)</span>
+                                </li>
+                            </ul>
+                            <p style={{ fontSize: '0.9rem', color: '#666', lineHeight: 1.6 }}>Exact inclusions vary by lane (country), shipment size, and service level. We confirm scope and exclusions before booking.</p>
+                        </div>
+                        <div style={{ ...cardStyle }}>
+                            <h3 style={{ fontSize: '1.4rem', marginBottom: '1rem', fontWeight: 600 }}>Extras (quoted separately)</h3>
+                            <p style={{ fontSize: '0.95rem', color: '#555', marginBottom: '1.25rem', lineHeight: 1.5 }}>To keep pricing honest and controlled, these are typically add-ons:</p>
+                            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
+                                <li style={{ ...bulletDotStyle, fontSize: '0.95rem' }}>
+                                    <span style={{ color: 'var(--muted-gold)', fontSize: '0.6rem', flexShrink: 0 }}>●</span>
+                                    <span>Storage at origin/destination</span>
+                                </li>
+                                <li style={{ ...bulletDotStyle, fontSize: '0.95rem' }}>
+                                    <span style={{ color: 'var(--muted-gold)', fontSize: '0.6rem', flexShrink: 0 }}>●</span>
+                                    <span>Custom crating (artwork/fragile/special items)</span>
+                                </li>
+                                <li style={{ ...bulletDotStyle, fontSize: '0.95rem' }}>
+                                    <span style={{ color: 'var(--muted-gold)', fontSize: '0.6rem', flexShrink: 0 }}>●</span>
+                                    <span>Special handling for high-value items</span>
+                                </li>
+                                <li style={{ ...bulletDotStyle, fontSize: '0.95rem' }}>
+                                    <span style={{ color: 'var(--muted-gold)', fontSize: '0.6rem', flexShrink: 0 }}>●</span>
+                                    <span>Destination services beyond delivery/unpacking (where applicable)</span>
+                                </li>
+                                <li style={{ ...bulletDotStyle, fontSize: '0.95rem' }}>
+                                    <span style={{ color: 'var(--muted-gold)', fontSize: '0.6rem', flexShrink: 0 }}>●</span>
+                                    <span>Any destination inspection fees, port/terminal fees, or customs charges (country-dependent)</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* How it works (simple) */}
+            <section className="section" style={{ background: 'var(--deep-charcoal)', color: 'white' }}>
+                <div className="container">
+                    <h2 style={{ fontSize: '2rem', marginBottom: '4rem', textAlign: 'center' }}>How it works (simple)</h2>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '3rem' }}>
+                        {[
+                            { step: 1, title: "Share your move details", text: "(origin, destination, date range, home size)" },
+                            { step: 2, title: "Survey & plan", text: "(video/on-site)" },
+                            { step: 3, title: "Export packing + inventory", text: "" },
+                            { step: 4, title: "Freight + tracking", text: "" },
+                            { step: 5, title: "Customs clearance + delivery", text: "(per selected service level)" }
+                        ].map((step, i) => (
+                            <div key={i} style={{ position: 'relative' }}>
+                                <div style={{
+                                    width: '40px',
+                                    height: '40px',
+                                    background: 'var(--muted-gold)',
+                                    borderRadius: '50%',
+                                    color: 'white',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    fontWeight: 700,
+                                    marginBottom: '1.5rem'
+                                }}>{step.step}</div>
+                                <h4 style={{ fontSize: '1.2rem', marginBottom: '0.8rem' }}>{step.title}</h4>
+                                {step.text && <p style={{ fontSize: '0.95rem', color: '#aaa', lineHeight: 1.6 }}>{step.text}</p>}
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Pricing guidance (transparent) */}
+            <section className="section">
+                <div className="container" style={{ maxWidth: '800px' }}>
+                    <h2 style={{ fontSize: '1.8rem', marginBottom: '1.5rem', textAlign: 'center' }}>Pricing guidance (transparent)</h2>
+                    <p style={{ marginBottom: '1.5rem', fontWeight: 600, textAlign: 'center' }}>International moving costs depend on:</p>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '0.75rem', marginBottom: '2rem' }}>
+                        {['Shipment size (boxes vs full household)', 'Mode (sea vs air)', 'Destination lane + seasonality', 'Packing level and special items', 'Service level (door-to-door vs port-to-door)'].map((factor, i) => (
+                            <span key={i} style={{ background: 'var(--soft-grey)', padding: '0.5rem 1rem', borderRadius: '999px', fontSize: '0.95rem', color: '#555' }}>{factor}</span>
+                        ))}
+                    </div>
+                    <p style={{ textAlign: 'center', color: '#666', lineHeight: 1.7 }}>We quote based on survey and declared inventory to avoid surprises.</p>
                 </div>
             </section>
 
             {/* FAQs */}
-            <section className="section">
+            <section className="section" style={{ background: '#fafafa' }}>
                 <div className="container" style={{ maxWidth: '800px' }}>
-                    <h2 style={{ textAlign: 'center', fontSize: '2.2rem', marginBottom: '3rem' }}>FAQs</h2>
+                    <h2 style={{ textAlign: 'center', fontSize: '1.8rem', marginBottom: '3rem' }}>FAQs</h2>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
                         {[
-                            { q: "How long does sea freight take?", a: "Transits vary: UK/Europe (4-6 weeks), USA/Canada (6-8 weeks), Australia (6-8 weeks). Air freight takes 5-10 days." },
-                            { q: "Do you handle customs charges?", a: "We handle the paperwork, but duties/taxes at destination are usually paid by the client (unless exempt)." },
-                            { q: "Can I store my goods before shipping?", a: "Yes, we offer secure storage in Dubai if your new home isn't ready." }
+                            { q: "Do you offer door-to-door international relocation?", a: "Yes — we can arrange door-to-door handling through our partner network depending on destination." },
+                            { q: "Can I ship by air if I'm in a hurry?", a: "Yes, for smaller/urgent shipments. Sea freight is usually more economical for full home moves." },
+                            { q: "Do you help with customs rules by country?", a: "We guide you on documents and common requirements, but rules vary by country. Many movers reference country customs guides such as those published by FIDI (informational resource)." },
+                            { q: "Is my shipment insured?", a: "We offer guidance on coverage options and will explain what applies before booking (based on declared value and terms)." },
+                            { q: "What items should not be shipped?", a: "Hazardous/dangerous goods (chemicals, aerosols, some batteries) can be restricted—tell us in advance so we can advise." }
                         ].map((faq, i) => (
                             <div key={i} style={{ paddingBottom: '1.5rem', borderBottom: '1px solid #eee' }}>
                                 <h4 style={{ fontSize: '1.1rem', marginBottom: '0.5rem', fontWeight: 600 }}>{faq.q}</h4>
@@ -167,20 +276,19 @@ export default function InternationalPage() {
             {/* CTA */}
             <section className="section" style={{ textAlign: 'center', background: '#fafafa' }}>
                 <div className="container">
-                    <h2 style={{ fontSize: '2.5rem', marginBottom: '1.5rem' }}>Start your international move</h2>
-                    <p style={{ marginBottom: '2.5rem', color: '#666' }}>Book a survey to calculate your CBM volume and get a shipping quote.</p>
+                    <h2 style={{ fontSize: '2rem', marginBottom: '1.5rem' }}>Ready to plan your international move?</h2>
+                    <p style={{ marginBottom: '2.5rem', color: '#666' }}>Send your origin + destination + date range + home size on WhatsApp. If you can, share a quick video walkthrough for accurate scoping.</p>
                     <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
-                        <a href="#contact" className="btn btn-primary" style={{ padding: '1rem 3rem', fontSize: '1.1rem' }}>
-                            Schedule Survey
+                        <a href={whatsAppUrl("Hi, I'd like an international relocation quote.")} className="btn btn-primary" style={{ padding: '1rem 3rem', fontSize: '1.1rem' }}>
+                            WhatsApp for an International Quote
                         </a>
-                        <a href="https://wa.me/yournumber" className="btn btn-outline" style={{ padding: '1rem 3rem', fontSize: '1.1rem' }}>
-                            WhatsApp Us
+                        <a href="/#contact" className="btn btn-outline" style={{ padding: '1rem 3rem', fontSize: '1.1rem' }}>
+                            Request a Survey (Video / On-site)
                         </a>
                     </div>
                 </div>
             </section>
 
-            <Footer />
-        </main>
+        </ServicePageLayout>
     );
 }

@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { whatsAppUrl } from '@/lib/site-config';
 
 export default function QuoteSection() {
     const factors = ["Size", "Distance", "Fragility", "Access", "Timing"];
@@ -20,7 +21,7 @@ export default function QuoteSection() {
                     viewport={{ once: true }}
                 >
                     <h2 style={{ fontSize: '3rem', marginBottom: '2rem', lineHeight: 1.1, letterSpacing: '-0.03em' }}>
-                        Every move is different. <br /> That’s why we don’t guess.
+                        Every move is different, <br /> that&apos;s why we don&apos;t guess.
                     </h2>
                     <p style={{ marginBottom: '3rem', fontSize: '1.1rem', color: '#555', lineHeight: 1.8 }}>
                         We understand that a price tag without context is just a number. Our team reviews every request personally to give you a fair, accurate, and transparent quote that respects the unique nature of your relocation.
@@ -63,8 +64,8 @@ export default function QuoteSection() {
                         <h3 style={{ marginBottom: '1.5rem', fontSize: '1.8rem', fontWeight: 500 }}>Ready for a consultation?</h3>
                         <p style={{ marginBottom: '2.5rem', color: '#666' }}>Tell us about your move, or start a conversation with our concierge team on WhatsApp.</p>
                         <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
-                            <a href="#contact" className="btn btn-primary" style={{ textAlign: 'center', padding: '1.2rem' }}>Tell us about your move</a>
-                            <a href="https://wa.me/yournumber" className="btn btn-outline" style={{ textAlign: 'center', padding: '1.2rem' }}>Chat with a Concierge</a>
+                            <a href="/#contact" className="btn btn-primary" style={{ textAlign: 'center', padding: '1.2rem' }}>Tell us about your move</a>
+                            <a href={whatsAppUrl("Hi, I'd like to chat with a concierge.")} className="btn btn-outline" style={{ textAlign: 'center', padding: '1.2rem' }}>Chat with a Concierge</a>
                         </div>
                     </div>
 

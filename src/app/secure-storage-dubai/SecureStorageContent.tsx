@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Warehouse, Lock, Thermometer, ShieldCheck } from 'lucide-react';
+import { whatsAppUrl } from '@/lib/site-config';
 
 export default function SecureStorageContent() {
     return (
@@ -37,14 +38,14 @@ export default function SecureStorageContent() {
                             lineHeight: 1.5
                         }}
                     >
-                        Clean, secure, and climate-safe storage solutions. We coordinate unit selection and logistics through trusted partner facilities.
+                        Clean, secure, and climate-safe storage solutions in Dubai — coordinated by Box & Beyond through our vetted storage partners. Whether you&apos;re moving, renovating, traveling, or need business storage, we help you choose the right unit size and handle the pickup/delivery flow.
                     </motion.p>
 
                     <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
-                        <a href="https://wa.me/yournumber" className="btn btn-primary" style={{ padding: '0.8rem 2rem' }}>
+                        <a href={whatsAppUrl("Hi, I'd like a storage quote.")} className="btn btn-primary" style={{ padding: '0.8rem 2rem' }}>
                             WhatsApp for Storage Quote
                         </a>
-                        <a href="#contact" className="btn btn-outline" style={{ padding: '0.8rem 2rem', background: 'white' }}>
+                        <a href="/#contact" className="btn btn-outline" style={{ padding: '0.8rem 2rem', background: 'white' }}>
                             Request Callback
                         </a>
                     </div>
@@ -139,11 +140,16 @@ export default function SecureStorageContent() {
             {/* CTA */}
             <section className="section" style={{ textAlign: 'center', padding: '4rem 0' }}>
                 <div className="container">
-                    <h2 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Need space?</h2>
-                    <p style={{ marginBottom: '2rem', color: '#666' }}>Whatsapp us your home size and items for a quick recommendation.</p>
-                    <a href="https://wa.me/yournumber" className="btn btn-primary" style={{ padding: '1rem 3rem' }}>
-                        Get Storage Quote
-                    </a>
+                    <h2 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Ready to store your items securely?</h2>
+                    <p style={{ marginBottom: '2rem', color: '#666' }}>Message us on WhatsApp with your home size + duration + items, and we&apos;ll recommend the right storage unit and provide a clear quote.</p>
+                    <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+                        <a href={whatsAppUrl("Hi, I'd like a storage quote.")} className="btn btn-primary" style={{ padding: '1rem 3rem' }}>
+                            WhatsApp for Storage Quote
+                        </a>
+                        <a href="/#contact" className="btn btn-outline" style={{ padding: '1rem 3rem' }}>
+                            Request Callback
+                        </a>
+                    </div>
                 </div>
             </section>
         </>

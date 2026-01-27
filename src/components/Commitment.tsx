@@ -1,23 +1,28 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ShieldCheck, Clock, BadgePercent } from 'lucide-react';
+import { Shield, Users, Clock, FileCheck } from 'lucide-react';
 
 const guarantees = [
     {
-        icon: <ShieldCheck size={40} strokeWidth={1} />,
-        title: "Damage-Free Guarantee",
-        text: "We treat your belongings like our own. Any damage during transit is covered by our comprehensive insurance policy."
+        icon: <Shield size={40} strokeWidth={1.5} />,
+        title: "Care-First Handling",
+        text: "Protection first packaging and careful loading standards. We take every precaution so your belongings arrive safely."
     },
     {
-        icon: <Clock size={40} strokeWidth={1} />,
+        icon: <Users size={40} strokeWidth={1.5} />,
+        title: "Trained Teams",
+        text: "Trained teams following a standard packing checklist. Consistent, professional execution every move."
+    },
+    {
+        icon: <Clock size={40} strokeWidth={1.5} />,
         title: "On-Time Arrival",
-        text: "We value your time. If we're more than 30 minutes late for your scheduled moving window, we'll discount your move."
+        text: "We value your time. If we're more than 30 minutes late for your moving window, we'll discount your move."
     },
     {
-        icon: <BadgePercent size={40} strokeWidth={1} />,
-        title: "Zero Hidden Costs",
-        text: "The price we quote is the price you pay. No last-minute 'truck fees' or 'packing surcharges'."
+        icon: <FileCheck size={40} strokeWidth={1.5} />,
+        title: "Transparent Scope",
+        text: "Clear inclusions and exclusions. No surprises. Check our what's included & exclusions on each service page before you book."
     }
 ];
 

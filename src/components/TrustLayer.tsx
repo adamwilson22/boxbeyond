@@ -8,22 +8,22 @@ export default function TrustLayer() {
         {
             icon: <Shield size={24} strokeWidth={1.5} />,
             title: "Care-First Handling",
-            text: "Protection-first packaging & careful loading standards."
+            text: "Protection first packaging and careful loading standards. We take every precaution so your belongings arrive safely."
         },
         {
             icon: <Users size={24} strokeWidth={1.5} />,
             title: "Trained Teams",
-            text: "Trained teams following a standard packing checklist."
+            text: "Trained teams following a standard packing checklist. Consistent, professional execution every move."
         },
         {
             icon: <Map size={24} strokeWidth={1.5} />,
             title: "On-Time Arrival",
-            text: "We value your time with strict schedules."
+            text: "We value your time. If we're more than 30 minutes late for your moving window, we'll discount your move."
         },
         {
             icon: <HeartHandshake size={24} strokeWidth={1.5} />,
             title: "Transparent Scope",
-            text: "Clear inclusions/exclusions. No surprises."
+            text: "Clear inclusions and exclusions. No surprises. Check our what's included & exclusions on each service page before you book."
         }
     ];
 

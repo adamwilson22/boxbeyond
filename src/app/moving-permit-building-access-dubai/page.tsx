@@ -5,7 +5,7 @@ import AccessContent from './AccessContent';
 
 export const metadata: Metadata = {
     title: "Moving Permit & Building Access Help in Dubai | Box & Beyond",
-    description: "Dubai moving day tips for building access, lift booking, parking, and permit guidance. Learn what to prepare to avoid delays.",
+    description: "Dubai moving day tips for building access, lift booking, parking, and permit guidance. Learn what to prepare to avoid delays. Get help via WhatsApp.",
 };
 
 export default function AccessPage() {

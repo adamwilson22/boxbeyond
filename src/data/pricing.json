@@ -1,0 +1,44 @@
+[
+  {
+    "id": "studio",
+    "title": "Studio Apartment",
+    "price": "779",
+    "trucks": "1 Truck included",
+    "features": ["Personal Move Coordinator", "Furniture Protection", "Dismantling & Assembly"]
+  },
+  {
+    "id": "1bhk",
+    "title": "1 BHK Apartment",
+    "price": "1,299",
+    "trucks": "1 Truck included",
+    "features": ["Personal Move Coordinator", "Furniture Protection", "Dismantling & Assembly"]
+  },
+  {
+    "id": "2bhk",
+    "title": "2 BHK Apartment",
+    "price": "1,699",
+    "trucks": "2 Trucks included",
+    "features": ["Personal Move Coordinator", "Furniture Protection", "Dismantling & Assembly"]
+  },
+  {
+    "id": "3bhk",
+    "title": "3 BHK Apartment",
+    "price": "2,879",
+    "trucks": "2 Trucks included",
+    "features": ["Personal Move Coordinator", "Furniture Protection", "Dismantling & Assembly"]
+  },
+  {
+    "id": "2bhk-villa",
+    "title": "2 BHK Villa",
+    "price": "2,199",
+    "trucks": "2 Trucks included",
+    "features": ["Personal Move Coordinator", "Furniture Protection", "Dismantling & Assembly"]
+  },
+  {
+    "id": "3bhk-villa",
+    "title": "3 BHK Villa",
+    "price": "3,425",
+    "trucks": "3 Trucks included",
+    "features": ["Personal Move Coordinator", "Furniture Protection", "Dismantling & Assembly"]
+  }
+]

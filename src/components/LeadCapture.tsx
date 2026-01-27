@@ -76,7 +76,7 @@ export default function LeadCapture() {
 
             <div style={{ textAlign: 'center', marginTop: '1rem' }}>
               <button type="submit" className="btn btn-primary" style={{ padding: '1.4rem 4rem', fontSize: '1rem', width: 'auto' }}>
-                Request Instant Quote
+                Request Quote in 30 Mins
               </button>
               <p style={{ marginTop: '1.5rem', fontSize: '0.9rem', color: '#888' }}>
                 Our concierge will contact you within 30 minutes.

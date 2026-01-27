@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { CheckCircle2 } from 'lucide-react';
 
 import { MOVING_PRICING } from '@/data/pricing';
+import { whatsAppUrl } from '@/lib/site-config';
 
 const tiers = MOVING_PRICING;
 
@@ -62,7 +63,7 @@ export default function Pricing() {
                                 ))}
                             </div>
 
-                            <a href="https://wa.me/yournumber" className="btn btn-outline" style={{ marginTop: 'auto', width: '100%', fontSize: '0.9rem', padding: '0.8rem' }}>
+                            <a href={whatsAppUrl()} className="btn btn-outline" style={{ marginTop: 'auto', width: '100%', fontSize: '0.9rem', padding: '0.8rem' }}>
                                 Quote via WhatsApp
                             </a>
                         </motion.div>

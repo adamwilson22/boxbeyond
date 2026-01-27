@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Star } from 'lucide-react';
+import { whatsAppUrl, trustedByText } from '@/lib/site-config';
 
 export default function Hero() {
     const containerRef = useRef(null);
@@ -153,7 +154,7 @@ export default function Hero() {
                                 flexWrap: 'wrap'
                             }}>
                                 <Link
-                                    href="https://wa.me/yournumber"
+                                    href={whatsAppUrl("Hi, I'd like a quote in 30 minutes.")}
                                     className="btn btn-primary"
                                     style={{
                                         flex: '1 1 auto',
@@ -186,7 +187,7 @@ export default function Hero() {
                                 <div style={{ display: 'flex', color: '#FFD700' }}>
                                     {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="#FFD700" />)}
                                 </div>
-                                <span style={{ fontWeight: 500 }}>Trusted by 500+ residents in Dubai</span>
+                                <span style={{ fontWeight: 500 }}>{trustedByText('in Dubai')}</span>
                             </motion.div>
                         </div>
                     </motion.div>

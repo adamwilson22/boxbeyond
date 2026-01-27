@@ -40,7 +40,7 @@ export default function ServicesSection() {
     return (
         <section className="section" id="services" style={{ background: 'var(--soft-grey)' }}>
             <div className="container">
-                <div style={{ marginBottom: '8rem' }}>
+                <div style={{ marginBottom: '5rem' }}>
                     <motion.h2
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -121,7 +121,7 @@ export default function ServicesSection() {
                                     }
                                 }}
                             >
-                                <div style={{ position: 'relative', zIndex: 1, color: 'inherit' }}>
+                                <div style={{ position: 'relative', zIndex: 1, color: 'inherit', textAlign: 'left' }}>
                                     <h3 style={{ fontSize: '1.6rem', marginBottom: '1rem', fontWeight: 600, letterSpacing: '-0.02em', color: 'inherit' }}>{service.title}</h3>
                                     <p style={{ fontSize: '1rem', opacity: 0.8, fontWeight: 400, lineHeight: 1.6, color: 'inherit' }}>{service.description}</p>
                                 </div>
@@ -130,10 +130,11 @@ export default function ServicesSection() {
                                     initial={{ x: 0 }}
                                     whileHover={{ x: 5 }}
                                     style={{
-                                        marginTop: '3rem', // Consistent spacing
+                                        marginTop: '3rem',
                                         display: 'flex',
                                         alignItems: 'center',
                                         gap: '0.8rem',
+                                        justifyContent: 'flex-start',
                                         fontSize: '0.85rem',
                                         fontWeight: 700,
                                         textTransform: 'uppercase',
