@@ -3,26 +3,10 @@
 import { motion } from 'framer-motion';
 import { CheckCircle2 } from 'lucide-react';
 
-const tiers = [
-    {
-        title: "Single Item",
-        price: "250",
-        description: "Perfect for high-value furniture or specialized equipment movement.",
-        features: ["Professional Protection", "Taillift Vehicle", "On-demand Dispatch"]
-    },
-    {
-        title: "Studio / 1BR",
-        price: "1,200",
-        description: "Complete end-to-end residential relocation with white-glove care.",
-        features: ["Standard Packing", "Unpacking Support", "Basic Assembly"]
-    },
-    {
-        title: "Large Villa / 3BR+",
-        price: "3,500",
-        description: "Full-scale logistics management for complex family relocations.",
-        features: ["Premium Packing", "Furniture Assembly", "Dedicated Concierge"]
-    }
-];
+import { MOVING_PRICING } from '@/data/pricing';
+import { whatsAppUrl } from '@/lib/site-config';
+
+const tiers = MOVING_PRICING;
 
 export default function Pricing() {
     return (
@@ -43,8 +27,8 @@ export default function Pricing() {
 
                 <div style={{
                     display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-                    gap: '2rem'
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                    gap: '1.5rem'
                 }}>
                     {tiers.map((tier, i) => (
                         <motion.div
@@ -54,9 +38,9 @@ export default function Pricing() {
                             transition={{ duration: 0.6, delay: i * 0.1 }}
                             viewport={{ once: true }}
                             style={{
-                                padding: '3rem',
+                                padding: '2rem',
                                 background: 'white',
-                                borderRadius: '24px',
+                                borderRadius: '16px',
                                 border: '1px solid var(--border-color)',
                                 display: 'flex',
                                 flexDirection: 'column',
@@ -64,24 +48,23 @@ export default function Pricing() {
                                 overflow: 'hidden'
                             }}
                         >
-                            <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem', fontWeight: 500 }}>{tier.title}</h3>
-                            <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.5rem', marginBottom: '2rem' }}>
-                                <span style={{ fontSize: '0.9rem', color: '#888' }}>Starting from</span>
-                                <span style={{ fontSize: '2.5rem', fontWeight: 600, color: 'var(--muted-gold)' }}>AED {tier.price}</span>
+                            <h3 style={{ fontSize: '1.25rem', marginBottom: '0.5rem', fontWeight: 600 }}>{tier.title}</h3>
+                            <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.5rem', marginBottom: '1.5rem' }}>
+                                <span style={{ fontSize: '0.8rem', color: '#888' }}>Starting from</span>
+                                <span style={{ fontSize: '1.8rem', fontWeight: 700, color: 'var(--muted-gold)' }}>AED {tier.price}</span>
                             </div>
-                            <p style={{ fontSize: '1rem', color: '#666', marginBottom: '2rem', lineHeight: 1.6 }}>{tier.description}</p>
 
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '3rem' }}>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem', marginBottom: '2rem' }}>
                                 {tier.features.map((feature, j) => (
-                                    <div key={j} style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', fontSize: '0.95rem' }}>
-                                        <CheckCircle2 size={18} color="var(--muted-gold)" />
+                                    <div key={j} style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', fontSize: '0.9rem' }}>
+                                        <CheckCircle2 size={16} color="var(--muted-gold)" />
                                         <span>{feature}</span>
                                     </div>
                                 ))}
                             </div>
 
-                            <a href="#contact" className="btn btn-outline" style={{ marginTop: 'auto', width: '100%' }}>
-                                Get Custom Quote
+                            <a href={whatsAppUrl()} className="btn btn-outline" style={{ marginTop: 'auto', width: '100%', fontSize: '0.9rem', padding: '0.8rem' }}>
+                                Quote via WhatsApp
                             </a>
                         </motion.div>
                     ))}

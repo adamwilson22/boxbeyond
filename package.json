@@ -6,9 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test:feedback": "node scripts/test-feedback-pointers.mjs"
   },
   "dependencies": {
+    "@fontsource/outfit": "^5.2.8",
     "framer-motion": "^12.24.10",
     "lucide-react": "^0.562.0",
     "next": "16.1.1",

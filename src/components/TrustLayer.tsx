@@ -7,23 +7,23 @@ export default function TrustLayer() {
     const points = [
         {
             icon: <Shield size={24} strokeWidth={1.5} />,
-            title: "Damage-Free Guarantee",
-            text: "Fully insured moves for your peace of mind."
+            title: "Care-First Handling",
+            text: "Protection first packaging and careful loading standards. We take every precaution so your belongings arrive safely."
         },
         {
             icon: <Users size={24} strokeWidth={1.5} />,
             title: "Trained Teams",
-            text: "In-house professionals, no day laborers."
+            text: "Trained teams following a standard packing checklist. Consistent, professional execution every move."
         },
         {
             icon: <Map size={24} strokeWidth={1.5} />,
             title: "On-Time Arrival",
-            text: "Punctuality is our premium promise."
+            text: "We value your time. If we're more than 30 minutes late for your moving window, we'll discount your move."
         },
         {
             icon: <HeartHandshake size={24} strokeWidth={1.5} />,
-            title: "Zero Hidden Costs",
-            text: "Transparent pricing from day one."
+            title: "Transparent Scope",
+            text: "Clear inclusions and exclusions. No surprises. Check our what's included & exclusions on each service page before you book."
         }
     ];
 
