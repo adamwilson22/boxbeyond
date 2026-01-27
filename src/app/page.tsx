@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import { whatsAppUrl } from '@/lib/site-config';
-import TrustLayer from '@/components/TrustLayer';
 import ServicesSection from '@/components/ServicesSection';
 import QuoteSection from '@/components/QuoteSection';
 import ProcessSection from '@/components/ProcessSection';
@@ -22,7 +21,7 @@ export default function Home() {
     <main>
       <Navbar theme="dark" />
       <Hero />
-      <TrustLayer />
+      <Commitment />
       <ServicesSection />
       <QuoteSection />
       <ProcessSection />
@@ -60,7 +59,6 @@ export default function Home() {
 
       <Testimonials />
       <HumanElement />
-      <Commitment />
 
       <FAQsSection />
 
