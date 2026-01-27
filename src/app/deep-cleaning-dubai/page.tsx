@@ -9,7 +9,7 @@ export default function DeepCleaningPage() {
     return (
         <ServicePageLayout
             title="Deep Cleaning in Dubai (Move-In / Move-Out) — Verified Partners"
-            subtitle="Professional deep cleaning in Dubai for apartments, villas, and offices — coordinated by Box & Beyond and delivered through our verified deep cleaning partners. Perfect for move-in refresh, move-out handover, and getting your home "handover-ready" to help reduce cleaning-related disputes."
+            subtitle='Professional deep cleaning in Dubai for apartments, villas, and offices — coordinated by Box & Beyond and delivered through our verified deep cleaning partners. Perfect for move-in refresh, move-out handover, and getting your home "handover-ready" to help reduce cleaning-related disputes.'
             primaryCta={{
                 text: "WhatsApp for Deep Cleaning Quote",
                 href: whatsAppUrl("Hi, I'd like a deep cleaning quote.")
