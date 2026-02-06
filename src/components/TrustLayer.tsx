@@ -50,6 +50,7 @@ export default function TrustLayer() {
                                 display: 'flex',
                                 flexDirection: 'column',
                                 alignItems: 'flex-start',
+                                textAlign: 'left',
                                 gap: '1.2rem'
                             }}
                         >
@@ -61,7 +62,8 @@ export default function TrustLayer() {
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
-                                color: 'var(--muted-gold)'
+                                color: 'var(--muted-gold)',
+                                flexShrink: 0,
                             }}>
                                 {point.icon}
                             </div>

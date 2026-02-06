@@ -4,22 +4,39 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import NextImage from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
-import { whatsAppUrl } from '@/lib/site-config';
+import { Menu, X, ChevronDown } from 'lucide-react';
 
 interface NavbarProps {
     theme?: 'light' | 'dark';
 }
 
+const SERVICES_DROPDOWN = [
+    { label: 'Home Moving', href: '/services/home-moving' },
+    { label: 'Office Moving', href: '/office-relocation-dubai' },
+    { label: 'Single Item Moving', href: '/single-item-move-dubai' },
+    { label: 'International Relocation', href: '/international-relocation-dubai' },
+    { label: 'Storage', href: '/secure-storage-dubai' },
+    { label: 'Concierge Add-Ons', href: '/concierge-add-ons-dubai' },
+];
+
+const HELP_GUIDE_DROPDOWN = [
+    { label: 'Help and Guide', href: '/help-guides' },
+    { label: 'Contact Us', href: '/contact-us' },
+];
+
 const NAV_LINKS = [
     { label: 'Home', href: '/' },
-    { label: 'Services', href: '/#services' },
-    { label: 'Help & Guides', href: '/moving-permit-building-access-dubai' },
+    { label: 'Services', href: '#', hasDropdown: true, dropdownKey: 'services' },
+    { label: 'About Us', href: '/about' },
+    { label: 'Insurance and Claims', href: '/insurance-claims' },
+    { label: 'Help and Guide', href: '/help-guides', hasDropdown: true, dropdownKey: 'helpGuide' },
 ];
 
 export default function Navbar({ theme = 'light' }: NavbarProps) {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [servicesOpen, setServicesOpen] = useState(false);
+    const [helpGuideOpen, setHelpGuideOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -29,7 +46,11 @@ export default function Navbar({ theme = 'light' }: NavbarProps) {
 
     useEffect(() => {
         const handleResize = () => {
-            if (typeof window !== 'undefined' && window.innerWidth >= 1024) setIsMobileMenuOpen(false);
+            if (typeof window !== 'undefined' && window.innerWidth >= 1024) {
+                setIsMobileMenuOpen(false);
+                setServicesOpen(false);
+                setHelpGuideOpen(false);
+            }
         };
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
@@ -80,42 +101,137 @@ export default function Navbar({ theme = 'light' }: NavbarProps) {
                     className="navbar-desktop"
                     style={{
                         display: 'flex',
-                        gap: '2.5rem',
+                        gap: '1.5rem',
                         alignItems: 'center',
                     }}
                 >
-                    {NAV_LINKS.map(({ label, href }) => (
-                        <Link
-                            key={label}
-                            href={href}
-                            style={{
-                                color: useDarkText ? 'var(--deep-charcoal)' : 'white',
-                                fontSize: '0.95rem',
-                                fontWeight: 500,
-                                transition: 'color 0.3s ease',
-                            }}
-                        >
-                            {label}
-                        </Link>
-                    ))}
-                    <a
-                        href={whatsAppUrl("Hi, I'd like a quote in 30 minutes.")}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn-primary"
+                    {NAV_LINKS.map((item) =>
+                        item.hasDropdown ? (
+                            <div
+                                key={item.label}
+                                style={{ position: 'relative' }}
+                                onMouseEnter={() => {
+                                    if (item.dropdownKey === 'services') setServicesOpen(true);
+                                    if (item.dropdownKey === 'helpGuide') setHelpGuideOpen(true);
+                                }}
+                                onMouseLeave={() => {
+                                    if (item.dropdownKey === 'services') setServicesOpen(false);
+                                    if (item.dropdownKey === 'helpGuide') setHelpGuideOpen(false);
+                                }}
+                            >
+                                {item.dropdownKey === 'services' ? (
+                                    <button
+                                        style={{
+                                            background: 'none',
+                                            border: 'none',
+                                            cursor: 'pointer',
+                                            color: useDarkText ? 'var(--deep-charcoal)' : 'white',
+                                            fontSize: '0.95rem',
+                                            fontWeight: 500,
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            gap: '0.25rem',
+                                            padding: 0,
+                                            fontFamily: 'inherit',
+                                        }}
+                                    >
+                                        {item.label}
+                                        <ChevronDown size={16} style={{ opacity: servicesOpen ? 0.7 : 1 }} />
+                                    </button>
+                                ) : (
+                                    <Link
+                                        href={item.href}
+                                        style={{
+                                            color: useDarkText ? 'var(--deep-charcoal)' : 'white',
+                                            fontSize: '0.95rem',
+                                            fontWeight: 500,
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            gap: '0.25rem',
+                                            textDecoration: 'none',
+                                        }}
+                                    >
+                                        {item.label}
+                                        <ChevronDown size={16} style={{ opacity: helpGuideOpen ? 0.7 : 1 }} />
+                                    </Link>
+                                )}
+                                <AnimatePresence>
+                                    {(item.dropdownKey === 'services' ? servicesOpen : item.dropdownKey === 'helpGuide' && helpGuideOpen) && (
+                                        <motion.div
+                                            initial={{ opacity: 0, y: -8 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            exit={{ opacity: 0, y: -8 }}
+                                            transition={{ duration: 0.2 }}
+                                            style={{
+                                                position: 'absolute',
+                                                top: '100%',
+                                                left: 0,
+                                                marginTop: '0.5rem',
+                                                background: 'white',
+                                                borderRadius: '12px',
+                                                boxShadow: '0 10px 40px rgba(0,0,0,0.12)',
+                                                border: '1px solid var(--border-color)',
+                                                padding: '0.5rem 0',
+                                                minWidth: '220px',
+                                                zIndex: 1002,
+                                            }}
+                                        >
+                                            {(item.dropdownKey === 'services' ? SERVICES_DROPDOWN : HELP_GUIDE_DROPDOWN).map((s) => (
+                                                <Link
+                                                    key={s.href}
+                                                    href={s.href}
+                                                    style={{
+                                                        display: 'block',
+                                                        padding: '0.6rem 1.25rem',
+                                                        color: 'var(--deep-charcoal)',
+                                                        fontSize: '0.9rem',
+                                                        textDecoration: 'none',
+                                                        transition: 'background 0.2s',
+                                                    }}
+                                                    onMouseEnter={(e) => {
+                                                        e.currentTarget.style.background = 'var(--soft-grey)';
+                                                    }}
+                                                    onMouseLeave={(e) => {
+                                                        e.currentTarget.style.background = 'transparent';
+                                                    }}
+                                                >
+                                                    {s.label}
+                                                </Link>
+                                            ))}
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
+                            </div>
+                        ) : (
+                            <Link
+                                key={item.label}
+                                href={item.href}
+                                style={{
+                                    color: useDarkText ? 'var(--deep-charcoal)' : 'white',
+                                    fontSize: '0.95rem',
+                                    fontWeight: 500,
+                                    transition: 'color 0.3s ease',
+                                    textDecoration: 'none',
+                                }}
+                            >
+                                {item.label}
+                            </Link>
+                        )
+                    )}
+                    <Link
+                        href="/get-a-quote"
+                        className="btn btn-primary"
                         style={{
-                            background: 'var(--muted-gold)',
-                            color: 'white',
                             padding: '0.7rem 1.5rem',
-                            borderRadius: '100px',
+                            borderRadius: 'var(--radius-full)',
                             fontSize: '0.9rem',
                             fontWeight: 600,
                             letterSpacing: '0.02em',
                             textDecoration: 'none',
                         }}
                     >
-                        Quote in 30 Mins
-                    </a>
+                        Get a Quote
+                    </Link>
                 </div>
 
                 {/* Mobile: Hamburger */}
@@ -132,6 +248,9 @@ export default function Navbar({ theme = 'light' }: NavbarProps) {
                         height: 48,
                         zIndex: 1001,
                         color: useDarkText ? 'var(--deep-charcoal)' : 'white',
+                        background: 'none',
+                        border: 'none',
+                        cursor: 'pointer',
                     }}
                 >
                     {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -160,28 +279,55 @@ export default function Navbar({ theme = 'light' }: NavbarProps) {
                             zIndex: 999,
                             display: 'flex',
                             flexDirection: 'column',
-                            gap: '1.5rem',
+                            gap: '0.5rem',
                             overflowY: 'auto',
                         }}
                     >
-                        {NAV_LINKS.map(({ label, href }) => (
+                        <Link
+                            href="/"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            style={{ fontSize: '1.1rem', fontWeight: 500, color: 'var(--deep-charcoal)', textDecoration: 'none' }}
+                        >
+                            Home
+                        </Link>
+                        <div style={{ fontSize: '0.85rem', color: '#888', marginTop: '0.5rem' }}>Services</div>
+                        {SERVICES_DROPDOWN.map((s) => (
                             <Link
-                                key={label}
-                                href={href}
+                                key={s.href}
+                                href={s.href}
                                 onClick={() => setIsMobileMenuOpen(false)}
-                                style={{
-                                    fontSize: '1.25rem',
-                                    fontWeight: 500,
-                                    color: 'var(--deep-charcoal)',
-                                }}
+                                style={{ fontSize: '1rem', color: 'var(--deep-charcoal)', paddingLeft: '1rem', textDecoration: 'none' }}
                             >
-                                {label}
+                                {s.label}
                             </Link>
                         ))}
-                        <a
-                            href={whatsAppUrl("Hi, I'd like a quote in 30 minutes.")}
-                            target="_blank"
-                            rel="noopener noreferrer"
+                        <Link
+                            href="/about"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            style={{ fontSize: '1.1rem', fontWeight: 500, color: 'var(--deep-charcoal)', textDecoration: 'none', marginTop: '0.5rem' }}
+                        >
+                            About Us
+                        </Link>
+                        <Link
+                            href="/insurance-claims"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            style={{ fontSize: '1.1rem', fontWeight: 500, color: 'var(--deep-charcoal)', textDecoration: 'none' }}
+                        >
+                            Insurance and Claims
+                        </Link>
+                        <div style={{ fontSize: '0.85rem', color: '#888', marginTop: '0.5rem' }}>Help and Guide</div>
+                        {HELP_GUIDE_DROPDOWN.map((s) => (
+                            <Link
+                                key={s.href}
+                                href={s.href}
+                                onClick={() => setIsMobileMenuOpen(false)}
+                                style={{ fontSize: '1rem', color: 'var(--deep-charcoal)', paddingLeft: '1rem', textDecoration: 'none' }}
+                            >
+                                {s.label}
+                            </Link>
+                        ))}
+                        <Link
+                            href="/get-a-quote"
                             onClick={() => setIsMobileMenuOpen(false)}
                             className="btn-primary"
                             style={{
@@ -196,8 +342,8 @@ export default function Navbar({ theme = 'light' }: NavbarProps) {
                                 textDecoration: 'none',
                             }}
                         >
-                            Quote in 30 Mins
-                        </a>
+                            Get a Quote
+                        </Link>
                     </motion.div>
                 )}
             </AnimatePresence>

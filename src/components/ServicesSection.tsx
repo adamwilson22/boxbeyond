@@ -1,18 +1,19 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, Home, Package, Building2, Globe, Sparkles, Warehouse } from 'lucide-react';
 import Link from 'next/link';
 
+const services = [
+    { title: "Home Moving", description: "Seamless transitions for villas and apartments with white-glove care.", link: "/services/home-moving", icon: Home },
+    { title: "Single Item Movement", description: "Specialized transport for pianos, art, or individual high-value furniture.", link: "/single-item-move-dubai", icon: Package },
+    { title: "Office & Commercial", description: "Precision logistics with minimal downtime for your business.", link: "/office-relocation-dubai", icon: Building2 },
+    { title: "International Relocation", description: "Global moves handled with local care and full customs management.", link: "/international-relocation-dubai", icon: Globe },
+    { title: "Concierge Add-ons", description: "Deep Cleaning, Painting, and Pest Control services.", link: "/concierge-add-ons-dubai", icon: Sparkles },
+    { title: "Secure Storage", description: "Climate-controlled units for short-term or seasonal needs.", link: "/secure-storage-dubai", icon: Warehouse }
+];
+
 export default function ServicesSection() {
-    const services = [
-        { title: "Home Moving", description: "Seamless transitions for villas and apartments with white-glove care.", link: "/services/home-moving" },
-        { title: "Single Item Movement", description: "Specialized transport for pianos, art, or individual high-value furniture.", link: "/single-item-move-dubai" },
-        { title: "Office & Commercial", description: "Precision logistics with minimal downtime for your business.", link: "/office-relocation-dubai" },
-        { title: "International Relocation", description: "Global moves handled with local care and full customs management.", link: "/international-relocation-dubai" },
-        { title: "Concierge Add-ons", description: "Deep Cleaning, Painting, and Pest Control services.", link: "/concierge-add-ons-dubai" },
-        { title: "Secure Storage", description: "Climate-controlled units for short-term or seasonal needs.", link: "/secure-storage-dubai" }
-    ];
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -40,27 +41,30 @@ export default function ServicesSection() {
     return (
         <section className="section" id="services" style={{ background: 'var(--soft-grey)' }}>
             <div className="container">
-                <div style={{ marginBottom: '5rem' }}>
+                <div style={{ marginBottom: '4rem' }}>
                     <motion.h2
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] as any }}
+                        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any }}
                         viewport={{ once: true }}
                         style={{
-                            fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
-                            marginBottom: '2rem',
+                            fontSize: 'clamp(2.25rem, 5vw, 3.75rem)',
+                            marginBottom: '1.25rem',
                             letterSpacing: '-0.04em',
-                            fontWeight: 400
+                            fontWeight: 700,
+                            color: 'var(--text-dark)',
+                            whiteSpace: 'nowrap',
                         }}
+                        className="services-header-one-line"
                     >
-                        Services curated <br /> for you.
+                        Services curated for you
                     </motion.h2>
                     <motion.p
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
-                        transition={{ duration: 1, delay: 0.3 }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
                         viewport={{ once: true }}
-                        style={{ maxWidth: '500px', fontSize: '1.2rem', color: '#666', fontWeight: 300, lineHeight: 1.8 }}
+                        style={{ maxWidth: '520px', fontSize: '1.15rem', color: 'var(--text-muted)', fontWeight: 400, lineHeight: 1.75 }}
                     >
                         Not just a list of tasks, but a comprehensive approach to relocation designed for peace of mind and precision.
                     </motion.p>
@@ -70,14 +74,11 @@ export default function ServicesSection() {
                     variants={containerVariants}
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true, margin: "-100px" }}
+                    viewport={{ once: true, margin: "-80px" }}
                     style={{
                         display: 'grid',
                         gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-                        gap: '1px',
-                        background: '#e5e5e5', // Slightly darker for better grid line contrast
-                        border: '1px solid #e5e5e5',
-                        borderRadius: '1px'
+                        gap: '1.5rem',
                     }}
                 >
                     {services.map((service, i) => (
@@ -94,7 +95,7 @@ export default function ServicesSection() {
                             <motion.div
                                 whileHover="hover"
                                 style={{
-                                    padding: 'clamp(2rem, 5vw, 3.5rem)', // Adjusted padding
+                                    padding: 'clamp(2rem, 4vw, 3rem)',
                                     background: 'white',
                                     display: 'flex',
                                     flexDirection: 'column',
@@ -103,25 +104,48 @@ export default function ServicesSection() {
                                     cursor: 'pointer',
                                     position: 'relative',
                                     overflow: 'hidden',
-                                    flex: 1, // Fill the height of the Link (grid cell)
-                                    color: 'var(--foreground)'
+                                    flex: 1,
+                                    color: 'var(--foreground)',
+                                    borderRadius: 'var(--radius-lg)',
+                                    boxShadow: 'var(--shadow-md)',
+                                    border: '1px solid var(--border-color)',
                                 }}
                                 variants={{
                                     ...cardVariants,
                                     hover: {
-                                        backgroundColor: 'var(--muted-gold)',
+                                        background: 'var(--gold-gradient)',
                                         color: 'white',
-                                        y: -5,
-                                        zIndex: 10, // Ensure it sits on top when hovered
-                                        boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
+                                        y: -8,
+                                        zIndex: 10,
+                                        boxShadow: 'var(--shadow-gold)',
+                                        borderColor: 'transparent',
                                         transition: {
-                                            duration: 0.3,
+                                            duration: 0.35,
                                             ease: [0.22, 1, 0.36, 1] as any
                                         }
                                     }
                                 }}
                             >
-                                <div style={{ position: 'relative', zIndex: 1, color: 'inherit', textAlign: 'left' }}>
+                                <div style={{ position: 'relative', zIndex: 1, color: 'inherit', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', textAlign: 'left' }}>
+                                    {(() => {
+                                        const Icon = service.icon;
+                                        return (
+                                            <div style={{
+                                                width: '56px',
+                                                height: '56px',
+                                                borderRadius: 'var(--radius-md)',
+                                                background: 'var(--muted-gold-bg)',
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                justifyContent: 'center',
+                                                marginBottom: '1.25rem',
+                                                color: 'inherit',
+                                                flexShrink: 0,
+                                            }}>
+                                                <Icon size={28} strokeWidth={1.5} />
+                                            </div>
+                                        );
+                                    })()}
                                     <h3 style={{ fontSize: '1.6rem', marginBottom: '1rem', fontWeight: 600, letterSpacing: '-0.02em', color: 'inherit' }}>{service.title}</h3>
                                     <p style={{ fontSize: '1rem', opacity: 0.8, fontWeight: 400, lineHeight: 1.6, color: 'inherit' }}>{service.description}</p>
                                 </div>
@@ -163,9 +187,9 @@ export default function ServicesSection() {
                                     }}
                                     variants={{
                                         hover: {
-                                            backgroundColor: 'white', // White line on Gold background
+                                            backgroundColor: 'rgba(255,255,255,0.9)',
                                             scaleX: 1,
-                                            transition: { duration: 0.3 }
+                                            transition: { duration: 0.35 }
                                         }
                                     }}
                                 />

@@ -22,7 +22,7 @@ const guarantees = [
     {
         icon: <FileCheck size={40} strokeWidth={1.5} />,
         title: "Transparent Scope",
-        text: "Clear inclusions and exclusions. No surprises. Check our what's included & exclusions on each service page before you book."
+        text: "Clear inclusions and exclusions. No surprises. Check out what's included & exclusions on each service page before you book."
     }
 ];
 
@@ -51,7 +51,7 @@ export default function Commitment() {
                                 <div style={{ color: 'var(--muted-gold)', flexShrink: 0 }}>
                                     {g.icon}
                                 </div>
-                                <div>
+                                <div style={{ textAlign: 'left', flex: 1 }}>
                                     <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem', fontWeight: 500 }}>{g.title}</h3>
                                     <p style={{ color: '#aaa', lineHeight: 1.7, fontWeight: 300 }}>{g.text}</p>
                                 </div>

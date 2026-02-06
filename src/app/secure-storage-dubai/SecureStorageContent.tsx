@@ -116,8 +116,8 @@ export default function SecureStorageContent() {
                                 gap: '0.8rem',
                                 boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
                             }}>
-                                <span style={{ color: 'var(--muted-gold)' }}>{feat.icon}</span>
-                                <span style={{ fontWeight: 500 }}>{feat.text}</span>
+                                <span style={{ color: 'var(--muted-gold)', flexShrink: 0 }}>{feat.icon}</span>
+                                <span style={{ fontWeight: 500, flex: 1, textAlign: 'left' }}>{feat.text}</span>
                             </div>
                         ))}
                     </div>

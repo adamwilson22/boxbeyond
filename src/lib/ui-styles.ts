@@ -6,9 +6,9 @@
 export const cardStyle = {
     background: 'white',
     padding: '1.75rem 2rem',
-    borderRadius: '16px',
-    border: '1px solid #eee',
-    boxShadow: '0 4px 20px rgba(0,0,0,0.04)',
+    borderRadius: 'var(--radius-md)',
+    border: '1px solid var(--border-color)',
+    boxShadow: 'var(--shadow-md)',
 };
 
 export const cardStyleCompact = {

@@ -11,8 +11,8 @@ interface TrustPoint {
 }
 
 interface ServicePageLayoutProps {
-    title: string;
-    subtitle: string;
+    title: string | ReactNode;
+    subtitle: string | ReactNode;
     primaryCta: {
         text: string;
         href: string;
@@ -72,8 +72,9 @@ export default function ServicePageLayout({
                             fontSize: '1.2rem',
                             maxWidth: '700px',
                             margin: '0 auto 3rem',
-                            color: '#555',
-                            lineHeight: 1.6
+                            color: 'var(--text-muted)',
+                            lineHeight: 1.65,
+                            textAlign: 'center'
                         }}
                     >
                         {subtitle}
@@ -130,21 +131,38 @@ export default function ServicePageLayout({
                         )}
                     </motion.div>
 
-                    {/* Trust Points */}
+                    {/* Trust Points - highlighted below CTAs */}
                     {trustPoints && trustPoints.length > 0 && (
                         <div style={{
-                            marginTop: '3rem',
+                            marginTop: '2.5rem',
                             display: 'flex',
-                            gap: '2rem',
+                            gap: '1.5rem 2.5rem',
                             justifyContent: 'center',
                             flexWrap: 'wrap',
-                            color: '#666',
-                            fontSize: '0.9rem'
+                            width: '100%',
+                            maxWidth: '720px',
+                            marginLeft: 'auto',
+                            marginRight: 'auto',
                         }}>
                             {trustPoints.map((point, i) => (
-                                <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                                    <span style={{ color: 'var(--muted-gold)', flexShrink: 0 }}>{point.icon}</span>
-                                    <span>{point.text}</span>
+                                <div
+                                    key={i}
+                                    style={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        gap: '0.6rem',
+                                        padding: '0.6rem 1rem',
+                                        background: 'rgba(255,255,255,0.85)',
+                                        border: '1px solid var(--border-color)',
+                                        borderRadius: 'var(--radius-md)',
+                                        boxShadow: 'var(--shadow-sm)',
+                                        color: 'var(--text-dark)',
+                                        fontSize: '0.95rem',
+                                        fontWeight: 500,
+                                    }}
+                                >
+                                    <span style={{ color: 'var(--muted-gold)', flexShrink: 0, display: 'flex', alignItems: 'center' }}>{point.icon}</span>
+                                    <span style={{ textAlign: 'left', flex: 1 }}>{point.text}</span>
                                 </div>
                             ))}
                         </div>

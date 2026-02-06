@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Outfit } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 
-const outfit = Outfit({
+const montserrat = Montserrat({
   subsets: ["latin"],
-  variable: '--font-outfit',
+  variable: '--font-montserrat',
   display: 'swap',
 });
 
@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={outfit.variable}>
+      <body className={montserrat.variable}>
         {children}
       </body>
     </html>

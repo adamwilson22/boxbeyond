@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 export default function LeadCapture() {
   return (
-    <section className="section" id="contact" style={{ background: 'white' }}>
+    <section className="section" id="contact" style={{ background: 'white', paddingTop: 'clamp(8rem, 18vw, 12rem)' }}>
       <div className="container" style={{
         background: 'var(--soft-grey)',
         padding: 'clamp(3rem, 10vw, 7rem) clamp(1.5rem, 5vw, 5rem)',
@@ -76,7 +76,7 @@ export default function LeadCapture() {
 
             <div style={{ textAlign: 'center', marginTop: '1rem' }}>
               <button type="submit" className="btn btn-primary" style={{ padding: '1.4rem 4rem', fontSize: '1rem', width: 'auto' }}>
-                Request Quote in 30 Mins
+                Get a Quote in 30 mins
               </button>
               <p style={{ marginTop: '1.5rem', fontSize: '0.9rem', color: '#888' }}>
                 Our concierge will contact you within 30 minutes.

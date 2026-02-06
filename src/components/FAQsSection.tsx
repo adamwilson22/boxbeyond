@@ -56,7 +56,7 @@ export default function FAQsSection() {
     ];
 
     return (
-        <section className="section" style={{ background: '#fafafa' }}>
+        <section id="faqs" className="section" style={{ background: '#fafafa' }}>
             <div className="container" style={{ maxWidth: '900px' }}>
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}

@@ -1,18 +1,16 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
+import { whatsAppUrl } from '@/lib/site-config';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
-import { whatsAppUrl } from '@/lib/site-config';
 import ServicesSection from '@/components/ServicesSection';
-import QuoteSection from '@/components/QuoteSection';
 import ProcessSection from '@/components/ProcessSection';
-import LeadCapture from '@/components/LeadCapture';
 import Footer from '@/components/Footer';
 import Testimonials from '@/components/Testimonials';
 import HumanElement from '@/components/HumanElement';
 import PricingCards from '@/components/PricingCards';
-import Commitment from '@/components/Commitment';
 import USPSection from '@/components/USPSection';
 import FAQsSection from '@/components/FAQsSection';
 
@@ -21,49 +19,34 @@ export default function Home() {
     <main>
       <Navbar theme="dark" />
       <Hero />
-      <Commitment />
+      <HumanElement />
       <ServicesSection />
-      <QuoteSection />
       <ProcessSection />
-
       <PricingCards />
-
       <USPSection />
 
-      <section className="section" style={{ background: 'var(--deep-charcoal)', color: 'white', textAlign: 'center', padding: '6rem 2rem' }}>
+      {/* Get a Quote CTA - links to Get a Quote tab */}
+      <section className="section" style={{ background: 'linear-gradient(180deg, #fff 0%, var(--soft-grey-warm) 100%)', textAlign: 'center', padding: '4rem 2rem' }}>
         <div className="container">
           <motion.div
-            initial={{ opacity: 0, scale: 0.98 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', marginBottom: '1.5rem', color: 'white', letterSpacing: '-0.04em', fontWeight: 400 }}>Concierge add-ons <br /> for your move.</h2>
-            <p style={{ maxWidth: '700px', margin: '0 auto 3rem', color: '#aaa', fontSize: '1.2rem', lineHeight: 1.8, fontWeight: 300 }}>
-              Moving isn&apos;t just boxes — it&apos;s move-in ready and move-out smooth. Deep cleaning, home painting, pest control, AC cleaning, handyman, curtains, and more. One coordinator, one plan.
+            <h2 style={{ fontSize: 'clamp(2rem, 5vw, 2.75rem)', marginBottom: '1rem', letterSpacing: '-0.03em', fontWeight: 600 }}>Ready for a consultation?</h2>
+            <p style={{ maxWidth: '560px', margin: '0 auto 2rem', color: '#666', fontSize: '1.1rem', lineHeight: 1.7 }}>
+              Tell us about your move and get a transparent quote. Start a conversation with our concierge team on WhatsApp or fill out our quick form.
             </p>
-            <a href="/concierge-add-ons-dubai" className="btn" style={{
-              background: 'var(--muted-gold)',
-              color: 'white',
-              border: 'none',
-              padding: '1.2rem 3rem',
-              fontSize: '0.9rem',
-              textTransform: 'uppercase',
-              letterSpacing: '0.1em'
-            }}>
-              Build Your Move-In Package
-            </a>
+            <Link href="/get-a-quote" className="btn btn-primary" style={{ padding: '1rem 2.5rem', fontSize: '1rem' }}>
+              Get a Quote in 30 mins
+            </Link>
           </motion.div>
         </div>
       </section>
 
       <Testimonials />
-      <HumanElement />
-
       <FAQsSection />
-
-      <LeadCapture />
-
       <Footer />
 
       {/* Floating WhatsApp Button */}

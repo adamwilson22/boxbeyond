@@ -38,49 +38,60 @@ export default function USPSection() {
                     viewport={{ once: true }}
                     style={{ textAlign: 'center', marginBottom: '4rem' }}
                 >
-                    <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', marginBottom: '1rem', fontWeight: 600, letterSpacing: '-0.02em' }}>
+                    <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', marginBottom: '0.75rem', fontWeight: 700, letterSpacing: '-0.03em', color: 'var(--text-dark)' }}>
                         What sets us apart
                     </h2>
-                    <p style={{ fontSize: '1.1rem', color: '#666', maxWidth: '700px', margin: '0 auto', lineHeight: 1.6 }}>
+                    <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', maxWidth: '680px', margin: '0 auto', lineHeight: 1.65 }}>
                         Our strongest differentiators: transparent pricing, personalized planning, punctuality promise, and Dubai-specific permit coordination.
                     </p>
                 </motion.div>
 
                 <div style={{
                     display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-                    gap: '2rem'
-                }}>
+                    gridTemplateColumns: 'repeat(4, 1fr)',
+                    gap: '1.5rem'
+                }} className="usp-grid">
                     {usps.map((usp, i) => (
                         <motion.div
                             key={i}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: i * 0.1 }}
+                            transition={{ duration: 0.5, delay: i * 0.08 }}
                             viewport={{ once: true }}
+                            whileHover={{ y: -4, boxShadow: 'var(--shadow-lg)' }}
                             style={{
                                 ...cardStyle,
-                                textAlign: 'center',
-                                padding: '2rem'
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'flex-start',
+                                textAlign: 'left',
+                                padding: '2rem',
+                                borderLeft: '4px solid var(--muted-gold)',
+                                background: i % 2 === 0 ? 'rgba(182, 141, 93, 0.08)' : 'white',
+                                boxShadow: 'var(--shadow-md)',
+                                border: '1px solid rgba(182, 141, 93, 0.2)',
+                                borderRadius: 'var(--radius-md)',
                             }}
                         >
                             <div style={{
                                 width: '64px',
                                 height: '64px',
-                                background: 'rgba(182, 141, 93, 0.1)',
-                                borderRadius: '16px',
+                                background: 'var(--gold-gradient)',
+                                borderRadius: 'var(--radius-md)',
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
-                                color: 'var(--muted-gold)',
-                                margin: '0 auto 1.5rem'
+                                marginBottom: '1.5rem',
+                                boxShadow: 'var(--shadow-gold)',
+                                color: 'white',
+                                flexShrink: 0,
                             }}>
                                 {usp.icon}
                             </div>
-                            <h3 style={{ fontSize: '1.3rem', marginBottom: '1rem', fontWeight: 600, color: 'var(--text-dark)' }}>
+                            <h3 style={{ fontSize: '1.25rem', marginBottom: '0.75rem', fontWeight: 600, color: 'var(--text-dark)' }}>
                                 {usp.title}
                             </h3>
-                            <p style={{ fontSize: '0.95rem', color: '#666', lineHeight: 1.6 }}>
+                            <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', lineHeight: 1.6 }}>
                                 {usp.text}
                             </p>
                         </motion.div>

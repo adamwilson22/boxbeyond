@@ -107,19 +107,20 @@ export default function DeepCleaningPage() {
 
             {/* How it works */}
             <section className="section">
-                <div className="container" style={{ maxWidth: '700px' }}>
-                    <h2 style={{ fontSize: '2rem', marginBottom: '1.5rem', textAlign: 'center', fontWeight: 600 }}>How it works (Box & Beyond coordination)</h2>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                <div className="container">
+                    <h2 style={{ fontSize: '2rem', marginBottom: '3rem', textAlign: 'center' }}>How it works</h2>
+                    <div style={{ display: 'grid', gap: '2rem', alignItems: 'stretch' }} className="how-it-works-grid how-it-works-5">
                         {[
-                            "Share your property type + size and location (WhatsApp)",
-                            "We match you with a verified deep cleaning partner team",
-                            "You receive a clear quote and available time slots",
-                            "Partner team completes cleaning at your scheduled time",
-                            "Box & Beyond follows up for completion and feedback"
-                        ].map((step, i) => (
-                            <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '0.75rem 0', borderBottom: '1px solid #eee' }}>
-                                <span style={{ width: '28px', height: '28px', background: 'var(--muted-gold)', borderRadius: '50%', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: '0.9rem' }}>{i + 1}</span>
-                                <span style={{ fontSize: '1.05rem', color: '#333' }}>{step}</span>
+                            { step: 1, title: "Share property details", text: "Property type + size and location (WhatsApp)." },
+                            { step: 2, title: "We match you with a partner", text: "Verified deep cleaning partner team." },
+                            { step: 3, title: "Quote + slots", text: "You receive a clear quote and available time slots." },
+                            { step: 4, title: "Cleaning at scheduled time", text: "Partner team completes cleaning at your scheduled time." },
+                            { step: 5, title: "Follow-up", text: "Box & Beyond follows up for completion and feedback." }
+                        ].map((s, i) => (
+                            <div key={i} style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', textAlign: 'left', position: 'relative' }}>
+                                <div style={{ width: '48px', height: '48px', borderRadius: '50%', background: 'var(--muted-gold)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, color: 'white', flexShrink: 0, marginBottom: '1rem' }}>{s.step}</div>
+                                <h4 style={{ fontSize: '1.2rem', marginBottom: '0.75rem', fontWeight: 600, color: 'var(--text-dark)' }}>{s.title}</h4>
+                                <p style={{ fontSize: '0.95rem', color: '#555', lineHeight: 1.6, margin: 0 }}>{s.text}</p>
                             </div>
                         ))}
                     </div>

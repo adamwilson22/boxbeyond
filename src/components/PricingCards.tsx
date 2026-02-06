@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { Star, Check } from 'lucide-react';
 import { whatsAppUrl } from '@/lib/site-config';
-import { pricingCardStyle, bulletCheckStyle } from '@/lib/ui-styles';
+import { cardStyle } from '@/lib/ui-styles';
 
 type Plan = {
   title: string;
@@ -44,45 +44,50 @@ export default function PricingCards() {
     <section className="section" style={{ background: 'var(--soft-grey)', paddingTop: '5rem', paddingBottom: '5rem' }}>
       <div className="container">
         <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-          <h2 style={{ fontSize: '2.5rem', marginBottom: '0.75rem' }}>Transparent Pricing</h2>
-          <p style={{ maxWidth: '600px', margin: '0 auto' }}>
+          <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.75rem)', marginBottom: '0.75rem', fontWeight: 700, color: 'var(--text-dark)' }}>Transparent Pricing</h2>
+          <p style={{ margin: '0 auto', color: 'var(--text-muted)' }} className="pricing-subtext">
             Every move is different, that&apos;s why we don&apos;t guess. But here are typical starting ranges for standard moves.
           </p>
         </div>
 
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-          gap: '2rem'
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+          gap: '1.5rem'
         }}>
           {plans.map((plan, index) => (
             <div key={index} style={{
-              ...pricingCardStyle,
+              ...cardStyle,
               display: 'flex',
               flexDirection: 'column',
-              gap: '1.25rem'
+              alignItems: 'flex-start',
+              textAlign: 'left',
+              padding: '2rem',
+              gap: '1.25rem',
+              borderRadius: 'var(--radius-lg)',
+              boxShadow: 'var(--shadow-md)',
+              border: '1px solid var(--border-color)',
             }}>
-              <h3 style={{ fontSize: '1.3rem', fontWeight: 600, color: 'var(--muted-gold)', marginBottom: '0.25rem' }}>{plan.title}</h3>
-              <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'center', gap: '0.5rem' }}>
-                <span style={{ fontSize: '0.95rem', color: '#666', fontWeight: 400 }}>AED</span>
-                <span style={{ fontSize: '2.75rem', fontWeight: 700, color: 'var(--deep-charcoal)', letterSpacing: '-0.02em' }}>{plan.price}</span>
+              <h3 style={{ fontSize: '1.2rem', fontWeight: 600, color: 'var(--muted-gold)', marginBottom: '0.25rem' }}>{plan.title}</h3>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)', fontWeight: 500 }}>from AED</span>
+                <span style={{ fontSize: '2.5rem', fontWeight: 700, background: 'var(--gold-gradient)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', letterSpacing: '-0.02em' }}>{plan.price}</span>
               </div>
               <div style={{
-                background: 'rgba(182, 141, 93, 0.08)',
+                background: 'var(--muted-gold-bg)',
                 padding: '0.6rem 1.2rem',
-                borderRadius: '8px',
+                borderRadius: 'var(--radius-sm)',
                 fontSize: '0.9rem',
                 fontWeight: 500,
                 width: 'fit-content',
-                margin: '0 auto',
-                color: 'var(--muted-gold)'
+                color: 'var(--muted-gold)',
               }}>
                 🚚 {plan.trucks}
               </div>
 
-              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem', marginTop: '0.5rem' }}>
+              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem', marginTop: '0.5rem', padding: 0, width: '100%', alignItems: 'flex-start' }}>
                 {(plan.features || []).map((feature, i) => (
-                  <li key={i} style={{ ...bulletCheckStyle }}>
+                  <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', width: '100%' }}>
                     <Check size={18} color="var(--muted-gold)" style={{ flexShrink: 0 }} />
                     <span>{feature}</span>
                   </li>

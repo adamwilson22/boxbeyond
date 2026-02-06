@@ -29,20 +29,20 @@ const testimonials = [
 
 export default function Testimonials() {
     return (
-        <section className="section" style={{ background: 'white' }}>
+        <section className="section" style={{ background: 'var(--soft-grey)' }}>
             <div className="container">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1 }}
+                    transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
-                    style={{ textAlign: 'center', marginBottom: '5rem' }}
+                    style={{ textAlign: 'center', marginBottom: '4rem' }}
                 >
-                    <div style={{ display: 'flex', justifyContent: 'center', gap: '0.2rem', marginBottom: '1rem', color: '#FFD700' }}>
-                        {[...Array(5)].map((_, i) => <Star key={i} size={20} fill="#FFD700" />)}
+                    <div style={{ display: 'flex', justifyContent: 'center', gap: '0.25rem', marginBottom: '1rem', color: 'var(--muted-gold)' }}>
+                        {[...Array(5)].map((_, i) => <Star key={i} size={20} fill="var(--muted-gold)" />)}
                     </div>
-                    <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', marginBottom: '1.5rem', fontWeight: 400 }}>Trust is earned.</h2>
-                    <p style={{ fontSize: '1.1rem', color: '#666', maxWidth: '600px', margin: '0 auto' }}>
+                    <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3.25rem)', marginBottom: '1rem', fontWeight: 700, color: 'var(--text-dark)' }}>Trust is earned.</h2>
+                    <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', maxWidth: '600px', margin: '0 auto', lineHeight: 1.65 }}>
                         Join hundreds of satisfied residents and businesses who chose a smoother, more transparent relocation experience.
                     </p>
                 </motion.div>
@@ -60,16 +60,18 @@ export default function Testimonials() {
                             transition={{ duration: 0.6, delay: i * 0.1 }}
                             viewport={{ once: true }}
                             style={{
-                                padding: '2.5rem',
-                                background: 'var(--soft-grey)',
-                                borderRadius: '24px',
+                                padding: '2.25rem',
+                                background: 'white',
+                                borderRadius: 'var(--radius-lg)',
                                 display: 'flex',
                                 flexDirection: 'column',
-                                gap: '1.5rem'
+                                gap: '1.25rem',
+                                border: '1px solid var(--border-color)',
+                                boxShadow: 'var(--shadow-md)',
                             }}
                         >
-                            <div style={{ display: 'flex', gap: '0.1rem', color: '#FFD700' }}>
-                                {[...Array(t.rating)].map((_, j) => <Star key={j} size={14} fill="#FFD700" />)}
+                            <div style={{ display: 'flex', gap: '0.15rem', color: 'var(--muted-gold)' }}>
+                                {[...Array(t.rating)].map((_, j) => <Star key={j} size={14} fill="var(--muted-gold)" />)}
                             </div>
                             <p style={{ fontSize: '1.05rem', lineHeight: 1.7, color: '#333', fontStyle: 'italic' }}>"{t.text}"</p>
                             <div style={{ marginTop: 'auto' }}>

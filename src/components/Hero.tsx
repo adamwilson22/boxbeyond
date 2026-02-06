@@ -3,8 +3,8 @@
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Star } from 'lucide-react';
-import { whatsAppUrl, trustedByText } from '@/lib/site-config';
+import { Truck } from 'lucide-react';
+import { whatsAppUrl } from '@/lib/site-config';
 
 export default function Hero() {
     const containerRef = useRef(null);
@@ -65,7 +65,7 @@ export default function Hero() {
                 textAlign: 'center',
                 paddingTop: 'clamp(8rem, 20vw, 18rem)',
                 paddingBottom: 'clamp(4rem, 15vw, 12rem)',
-                background: 'white',
+                background: 'linear-gradient(180deg, var(--soft-grey-warm) 0%, #ffffff 40%, #ffffff 100%)',
                 position: 'relative',
                 overflow: 'hidden',
                 minHeight: '100vh',
@@ -74,22 +74,34 @@ export default function Hero() {
                 justifyContent: 'center'
             }}
         >
-            {/* Decorative background element with parallax and mouse follow */}
+            {/* Decorative blobs */}
             <motion.div
                 style={{
                     position: 'absolute',
                     top: '-10%',
                     right: '-5%',
-                    width: 'clamp(300px, 80vw, 600px)',
-                    height: 'clamp(300px, 80vw, 600px)',
-                    background: 'var(--soft-grey)',
+                    width: 'clamp(320px, 70vw, 560px)',
+                    height: 'clamp(320px, 70vw, 560px)',
+                    background: 'radial-gradient(circle, rgba(182, 141, 93, 0.12) 0%, transparent 70%)',
                     borderRadius: '50%',
-                    filter: 'blur(100px)',
+                    filter: 'blur(60px)',
                     zIndex: 0,
-                    opacity: 0.5,
                     y,
                     x: mouseX,
                     translateY: mouseY
+                }}
+            />
+            <motion.div
+                style={{
+                    position: 'absolute',
+                    bottom: '-15%',
+                    left: '-8%',
+                    width: 'clamp(280px, 50vw, 400px)',
+                    height: 'clamp(280px, 50vw, 400px)',
+                    background: 'radial-gradient(circle, rgba(182, 141, 93, 0.08) 0%, transparent 70%)',
+                    borderRadius: '50%',
+                    filter: 'blur(50px)',
+                    zIndex: 0
                 }}
             />
 
@@ -99,45 +111,65 @@ export default function Hero() {
                     initial="hidden"
                     animate="visible"
                 >
-                    <motion.h1
-                        variants={itemVariants}
-                        style={{
-                            fontSize: 'clamp(3.5rem, 10vw, 7rem)',
-                            lineHeight: 1.1,
-                            marginBottom: '1.5rem',
-                            maxWidth: '1000px',
-                            margin: '0 auto 1.5rem',
-                            fontWeight: 600,
-                            letterSpacing: '-0.03em',
-                            color: 'var(--text-dark)'
-                        }}
-                    >
-                        Moving, handled <br />
-                        <motion.span
-                            initial={{ color: 'var(--text-dark)' }}
-                            animate={{ color: 'var(--muted-gold)' }}
-                            transition={{ delay: 1.5, duration: 1 }}
-                            style={{ fontWeight: 600 }}
-                        >
-                            properly.
-                        </motion.span>
-                    </motion.h1>
+                    {/* Hero row: tagline | truck | sub-text */}
+                    <div style={{
+                        display: 'flex',
+                        flexWrap: 'wrap',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: 'clamp(1.5rem, 4vw, 3rem)',
+                        marginBottom: '2.5rem',
+                        textAlign: 'left',
+                    }}>
+                        <motion.div variants={itemVariants} style={{ flex: '1 1 280px', maxWidth: '400px' }}>
+                            <h1 style={{
+                                fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
+                                lineHeight: 1.12,
+                                marginBottom: '0.75rem',
+                                fontWeight: 700,
+                                letterSpacing: '-0.04em',
+                                color: 'var(--text-dark)'
+                            }}>
+                                Moving, handled{' '}
+                                <span style={{ background: 'var(--gold-gradient)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>properly.</span>
+                            </h1>
+                            <p style={{
+                                fontSize: 'clamp(1rem, 2.5vw, 1.2rem)',
+                                color: 'var(--text-muted)',
+                                lineHeight: 1.65,
+                                fontWeight: 400
+                            }}>
+                                Professional home, office and concierge packers & movers services across Dubai.
+                            </p>
+                        </motion.div>
 
-                    <motion.div variants={itemVariants}>
-                        <p style={{
-                            fontSize: 'clamp(1.1rem, 4vw, 1.4rem)',
-                            color: '#555',
-                            maxWidth: '650px',
-                            margin: '0 auto 3rem',
-                            fontWeight: 400,
-                            letterSpacing: '0.01em',
-                            lineHeight: 1.6
-                        }}>
-                            Assessment + Tailored Planning + Permit-to-Placement Coordination.
-                            <br />
-                            We make your move simple and stress-free.
-                        </p>
-                    </motion.div>
+                        <motion.div variants={itemVariants} style={{ flex: '0 0 auto', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                            <div style={{
+                                width: 'clamp(160px, 22vw, 220px)',
+                                height: 'clamp(120px, 18vw, 160px)',
+                                background: 'var(--gold-gradient)',
+                                borderRadius: 'var(--radius-lg)',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                boxShadow: 'var(--shadow-gold)',
+                                border: '1px solid rgba(255,255,255,0.2)',
+                            }}>
+                                <Truck size={72} strokeWidth={1.5} color="rgba(255,255,255,0.95)" style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))' }} />
+                            </div>
+                        </motion.div>
+
+                        <motion.div variants={itemVariants} style={{ flex: '1 1 280px', maxWidth: '320px' }}>
+                            <p style={{
+                                fontSize: 'clamp(1.05rem, 2.5vw, 1.25rem)',
+                                color: '#555',
+                                lineHeight: 1.7,
+                                fontWeight: 400
+                            }}>
+                                We make your move simple and stress-free.
+                            </p>
+                        </motion.div>
+                    </div>
 
                     <motion.div
                         variants={itemVariants}
@@ -154,7 +186,7 @@ export default function Hero() {
                                 flexWrap: 'wrap'
                             }}>
                                 <Link
-                                    href={whatsAppUrl("Hi, I'd like a quote in 30 minutes.")}
+                                    href="/get-a-quote"
                                     className="btn btn-primary"
                                     style={{
                                         flex: '1 1 auto',
@@ -163,10 +195,10 @@ export default function Hero() {
                                         fontSize: '1rem'
                                     }}
                                 >
-                                    Quote in 30 Mins
+                                    Get a Quote in 30 mins
                                 </Link>
                                 <Link
-                                    href="#contact"
+                                    href="/get-a-quote"
                                     className="btn btn-outline"
                                     style={{
                                         flex: '1 1 auto',
@@ -175,41 +207,41 @@ export default function Hero() {
                                         fontSize: '1rem'
                                     }}
                                 >
-                                    Schedule Inspection
+                                    Request Callback
                                 </Link>
                             </div>
-                            <motion.div
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                transition={{ delay: 2 }}
-                                style={{ fontSize: '0.9rem', color: '#666', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', marginTop: '0.5rem' }}
-                            >
-                                <div style={{ display: 'flex', color: '#FFD700' }}>
-                                    {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="#FFD700" />)}
-                                </div>
-                                <span style={{ fontWeight: 500 }}>{trustedByText('in Dubai')}</span>
-                            </motion.div>
                         </div>
                     </motion.div>
                 </motion.div>
             </div>
 
-            {/* Decorative floating line */}
+            {/* Scroll indicator */}
             <motion.div
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ delay: 1, duration: 2, ease: "easeInOut" }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.2, duration: 0.8 }}
                 style={{
                     position: 'absolute',
-                    bottom: '10%',
+                    bottom: '8%',
                     left: '50%',
                     transform: 'translateX(-50%)',
-                    width: '1px',
-                    height: '80px',
-                    background: 'linear-gradient(to bottom, var(--border-color), transparent)',
-                    zIndex: 1
+                    width: '24px',
+                    height: '40px',
+                    borderRadius: '12px',
+                    border: '2px solid var(--muted-gold)',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    paddingTop: '8px',
+                    zIndex: 1,
+                    opacity: 0.7
                 }}
-            />
+            >
+                <motion.div
+                    animate={{ y: [0, 6, 0] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+                    style={{ width: '4px', height: '8px', borderRadius: '2px', background: 'var(--muted-gold)' }}
+                />
+            </motion.div>
         </section >
     );
 }

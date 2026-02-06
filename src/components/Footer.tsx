@@ -1,4 +1,3 @@
-import { Star } from 'lucide-react';
 import NextImage from 'next/image';
 import { siteConfig, whatsAppUrl, trustedByText } from '@/lib/site-config';
 
@@ -6,7 +5,7 @@ export default function Footer() {
     return (
         <footer style={{
             padding: '6rem 0 3rem',
-            background: 'white',
+            background: 'var(--soft-grey-warm)',
             borderTop: '1px solid var(--border-color)'
         }}>
             <div className="container">
@@ -69,12 +68,6 @@ export default function Footer() {
                     alignItems: 'center'
                 }}>
                     <div style={{ display: 'flex', gap: '2rem', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
-                        <div style={{ display: 'flex', gap: '0.5rem', color: '#FFD700', alignItems: 'center' }}>
-                            <div style={{ display: 'flex' }}>
-                                {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="#FFD700" />)}
-                            </div>
-                            <span style={{ fontSize: '0.9rem', color: '#666', fontWeight: 500, marginLeft: '0.5rem' }}>4.9/5 on Google Reviews</span>
-                        </div>
                         <span style={{ fontSize: '0.9rem', color: '#888', fontWeight: 500 }}>{trustedByText()}</span>
                     </div>
 
